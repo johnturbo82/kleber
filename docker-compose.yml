@@ -1,0 +1,41 @@
+# Copyright Broadcom, Inc. All Rights Reserved.
+# SPDX-License-Identifier: APACHE-2.0
+
+services:
+  mariadb:
+    image: docker.io/bitnami/mariadb:latest
+    volumes:
+      - ./mariadb:/bitnami/mariadb
+    environment:
+      - ALLOW_EMPTY_PASSWORD=no
+      - MARIADB_USER=${MARIADB_USER}
+      - MARIADB_PASSWORD=${MARIADB_PASSWORD}
+      - MARIADB_ROOT_PASSWORD=${MARIADB_PASSWORD}
+      - MARIADB_DATABASE=bitnami_wordpress
+  wordpress:
+    image: docker.io/bitnami/wordpress:6
+    ports:
+      - '80:8080'
+      - '443:8443'
+    volumes:
+      - './wordpress:/bitnami/wordpress'
+    depends_on:
+      - mariadb
+    environment:
+      - ALLOW_EMPTY_PASSWORD=no
+      - WORDPRESS_DATABASE_HOST=mariadb
+      - WORDPRESS_DATABASE_PORT_NUMBER=3306
+      - WORDPRESS_DATABASE_USER=${MARIADB_USER}
+      - WORDPRESS_DATABASE_PASSWORD=${MARIADB_PASSWORD}
+      - WORDPRESS_DATABASE_NAME=bitnami_wordpress
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    depends_on:
+      - mariadb
+    environment:
+      PMA_HOST: mariadb
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: password_here
+    ports:
+      - "8081:80"

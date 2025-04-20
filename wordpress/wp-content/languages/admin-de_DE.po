@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 6.7.x - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-30 17:06:59+0000\n"
+"PO-Revision-Date: 2025-04-06 15:27:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1148,7 +1148,7 @@ msgstr "Themes aktualisieren"
 #. translators: %s: Link to documentation on child themes.
 #: wp-admin/update-core.php:665
 msgid "<strong>Please Note:</strong> Any customizations you have made to theme files will be lost. Please consider using <a href=\"%s\">child themes</a> for modifications."
-msgstr "<strong>Beachte bitte:</strong> Alle Anpassungen, die du an Theme-Dateien vorgenommen hast, werden verloren gehen. Ziehe in Erwägung, <a href=\"%s\">Child-Themes (engl.)</a> zu nutzen, um Modifikationen vorzunehmen."
+msgstr "<strong>Beachte bitte:</strong> Alle Anpassungen, die du an Theme-Dateien vorgenommen hast, werden verloren gehen. Ziehe in Erwägung, <a href=\"%s\">untergeordnete Themes (engl.)</a> zu nutzen, um Modifikationen vorzunehmen."
 
 #: wp-admin/update-core.php:660
 msgid "The following themes have new versions available. Check the ones you want to update and then click &#8220;Update Themes&#8221;."
@@ -1351,7 +1351,7 @@ msgstr "%s löschen"
 
 #: wp-admin/themes.php:733
 msgid "Install Parent Theme"
-msgstr "Eltern-Theme installieren"
+msgstr "Übergeordnetes Theme installieren"
 
 #: wp-admin/themes.php:664
 msgctxt "theme name"
@@ -1411,7 +1411,7 @@ msgstr "Theme wiederhergestellt."
 
 #: wp-admin/themes.php:301
 msgid "You cannot delete a theme while it has an active child theme."
-msgstr "Du kannst ein Theme nicht löschen, solange ein Child-Theme davon aktiv ist."
+msgstr "Du kannst ein Theme nicht löschen, solange ein untergeordnetes Theme davon aktiv ist."
 
 #: wp-admin/themes.php:292 wp-admin/network/themes.php:412
 msgid "Theme deleted."
@@ -1701,7 +1701,7 @@ msgstr "Solltest du dich dennoch dazu entscheiden, direkt zu editieren, empfehle
 #. translators: %s: Link to documentation on child themes.
 #: wp-admin/theme-editor.php:410
 msgid "If you need to tweak more than your theme&#8217;s CSS, you might want to try <a href=\"%s\">making a child theme</a>."
-msgstr "Wenn du mehr als das CSS deines Themes optimieren musst, solltest du vielleicht <a href=\"%s\">ein Child-Theme erstellen (engl.)</a>."
+msgstr "Wenn du mehr als das CSS deines Themes optimieren musst, solltest du vielleicht <a href=\"%s\">ein untergeordnetes Theme erstellen (engl.)</a>."
 
 #: wp-admin/theme-editor.php:402
 msgid "You appear to be making direct edits to your theme in the WordPress dashboard. It is not recommended! Editing your theme directly could break your site and your changes may be lost in future updates."
@@ -1709,12 +1709,12 @@ msgstr "Du scheinst im WordPress-Dashboard direkte Änderungen an deinem Theme v
 
 #: wp-admin/theme-editor.php:336
 msgid "This is a file in your current parent theme."
-msgstr "Dies ist eine Datei des aktuell verwendeten übergeordneten Eltern-Themes."
+msgstr "Dies ist eine Datei des aktuell verwendeten übergeordneten Themes."
 
 #. translators: %s: Link to edit parent theme.
 #: wp-admin/theme-editor.php:285
 msgid "This child theme inherits templates from a parent theme, %s."
-msgstr "Dieses Child-Theme greift auf Dateien des übergeordneten Eltern-Themes %s zurück."
+msgstr "Dieses untergeordnete Theme greift auf Templates des übergeordneten Themes %s zurück."
 
 #: wp-admin/theme-editor.php:278
 msgid "Theme Files"
@@ -1756,7 +1756,7 @@ msgstr "<a href=\"https://developer.wordpress.org/themes/\">Dokumentation über 
 #. translators: %s: Link to documentation on child themes.
 #: wp-admin/theme-editor.php:43
 msgid "Upgrading to a newer version of the same theme will override changes made here. To avoid this, consider creating a <a href=\"%s\">child theme</a> instead."
-msgstr "Bei einer Aktualisierung auf eine neuere Version dieses Themes, werden hier vorgenommene Änderungen überschrieben. Um das zu vermeiden, solltest du stattdessen die Erstellung eines <a href=\"%s\">Child-Themes</a> in Erwägung ziehen."
+msgstr "Bei einer Aktualisierung auf eine neuere Version dieses Themes, werden hier vorgenommene Änderungen überschrieben. Um das zu vermeiden, solltest du stattdessen die Erstellung eines <a href=\"%s\">untergeordneten Themes (engl.)</a> in Erwägung ziehen."
 
 #: wp-admin/theme-editor.php:40
 msgid "<strong>Advice:</strong> Think very carefully about your site crashing if you are live-editing the theme currently in use."
@@ -4223,7 +4223,7 @@ msgstr "Kehre zum <strong>Browser-Uploader</strong> zurück, indem du den Link u
 
 #: wp-admin/media-new.php:54
 msgid "Clicking <strong>Select Files</strong> opens a navigation window showing you files in your operating system. Selecting <strong>Open</strong> after clicking on the file you want activates a progress bar on the uploader screen."
-msgstr "Klicke auf <strong>Dateien auswählen</strong>, um Dateien von deinem Computer auszuwählen, die du hochladen möchtest, indem du nach dem Auswählen im Dateidialog auf <strong>Öffnen</strong> klickst. Anschließend werden die Dateien hochgeladen (<em>Verarbeiten …</em>), verarbeitet und Vorschaubilder erstellt."
+msgstr "Wenn du auf <strong>Dateien auswählen</strong> klickst, öffnet sich ein Navigationsfenster, in dem die Dateien deines Betriebssystems angezeigt werden. Durch Klicken auf die gewünschte Datei und Auswahl von <strong>Öffnen</strong> wird ein Fortschrittsbalken in der Ansicht des Uploaders gestartet."
 
 #: wp-admin/media-new.php:53
 msgid "<strong>Drag and drop</strong> your files into the area below. Multiple files are allowed."
@@ -5056,7 +5056,7 @@ msgstr "Tags:"
 #. translators: %s: Theme name.
 #: wp-admin/includes/theme.php:976 wp-admin/themes.php:1201
 msgid "This is a child theme of %s."
-msgstr "Dies ist ein Child-Theme von %s."
+msgstr "Dies ist ein untergeordnetes Theme von %s."
 
 #: wp-admin/includes/theme.php:902 wp-admin/themes.php:1122
 msgid "Update Incompatible"
@@ -6818,7 +6818,7 @@ msgstr "Brauchst du Hilfe? Benutze den Tab &#8222;Hilfe&#8220; oben am Bildschir
 
 #: wp-admin/includes/meta-boxes.php:1010
 msgid "(no parent)"
-msgstr "Hauptseite (keine Übergeordnete)"
+msgstr "(keine Übergeordnete)"
 
 #: wp-admin/includes/meta-boxes.php:922
 msgid "Show comments"
@@ -8697,7 +8697,7 @@ msgstr "Es wurden ungültige Daten angegeben."
 #. theme.
 #: wp-admin/includes/class-wp-themes-list-table.php:287
 msgid "This <a href=\"%1$s\">child theme</a> requires its parent theme, %2$s."
-msgstr "Dieses <a href=\"%1$s\">Child-Theme</a> benötigt das Eltern-Theme %2$s, um zu funktionieren."
+msgstr "Dieses <a href=\"%1$s\">untergeordnete Theme</a> erfordert das übergeordnete Theme %2$s."
 
 #. translators: %s: Theme name.
 #: wp-admin/includes/class-wp-themes-list-table.php:234
@@ -12944,17 +12944,17 @@ msgstr "Das aktive Theme hat folgenden Fehler: „%s“."
 #. translators: %s: Theme name.
 #: wp-admin/includes/class-theme-upgrader.php:93
 msgid "<strong>The parent theme could not be found.</strong> You will need to install the parent theme, %s, before you can use this child theme."
-msgstr "<strong>Das Eltern-Theme konnte nicht gefunden werden.</strong> Du musst das Eltern-Theme installieren, %s, bevor du dieses Child-Theme benutzen kannst."
+msgstr "<strong>Das übergeordnete Theme konnte nicht gefunden werden.</strong> Du musst das übergeordnete Theme installieren, %s, bevor du dieses untergeordnete Theme benutzen kannst."
 
 #. translators: 1: Theme name, 2: Theme version.
 #: wp-admin/includes/class-theme-upgrader.php:91
 msgid "Successfully installed the parent theme, <strong>%1$s %2$s</strong>."
-msgstr "Das Eltern-Theme wurde erfolgreich installiert, <strong>%1$s %2$s</strong>."
+msgstr "Das übergeordnete Theme wurde erfolgreich installiert, <strong>%1$s %2$s</strong>."
 
 #. translators: 1: Theme name, 2: Theme version.
 #: wp-admin/includes/class-theme-upgrader.php:89
 msgid "The parent theme, <strong>%1$s %2$s</strong>, is currently installed."
-msgstr "Das Eltern-Theme, <strong>%1$s %2$s</strong>, ist momentan installiert."
+msgstr "Das übergeordnete Theme, <strong>%1$s %2$s</strong>, ist momentan installiert."
 
 #. translators: 1: Theme name, 2: Theme version.
 #: wp-admin/includes/class-theme-upgrader.php:87
@@ -12963,7 +12963,7 @@ msgstr "Vorbereiten der Installation <strong>%1$s %2$s</strong> &#8230;"
 
 #: wp-admin/includes/class-theme-upgrader.php:85
 msgid "This theme requires a parent theme. Checking if it is installed&#8230;"
-msgstr "Dieses Theme braucht ein Eltern-Theme. Überprüfung, ob es installiert ist &#8230;"
+msgstr "Dieses Theme erfordert ein übergeordnetes Theme. Überprüfung, ob es installiert ist &#8230;"
 
 #. translators: 1: Theme name, 2: Theme version.
 #: wp-admin/includes/class-theme-upgrader.php:84
@@ -14791,7 +14791,7 @@ msgstr "<strong>Vorschau</strong> zeigt, wie der Beitrag aussehen würde, wenn d
 
 #: wp-admin/edit.php:280
 msgid "<strong>Trash</strong> removes your post from this list and places it in the Trash, from which you can permanently delete it."
-msgstr "<strong>Papierkorb</strong> löscht deinen Beitrag aus dieser Liste und legt ihn in den Papierkorb, aus dem du ihn endgültig löschen kannst."
+msgstr "<strong>In Papierkorb legen</strong> löscht deinen Beitrag aus dieser Liste und legt ihn in den Papierkorb, aus dem du ihn endgültig löschen kannst."
 
 #: wp-admin/edit.php:279
 msgid "<strong>Quick Edit</strong> provides inline access to the metadata of your post, allowing you to update post details without leaving this screen."
@@ -14902,7 +14902,7 @@ msgstr "<strong>Beschreibung</strong> &ndash; Die Beschreibung wird normalerweis
 
 #: wp-admin/edit-tags.php:289
 msgid "<strong>Parent</strong> &mdash; Categories, unlike tags, can have a hierarchy. You might have a Jazz category, and under that have child categories for Bebop and Big Band. Totally optional. To create a subcategory, just choose another category from the Parent dropdown."
-msgstr "<strong>Eltern</strong> &ndash; Das sind übergeordnete Kategorien, die im Gegensatz zu Schlagwörtern hierarchisch angeordnet werden können. Du kannst zum Beispiel eine Kategorie Jazz anlegen sowie die Kategorien Bebop und Big Band. Wie du willst. Da die beiden letzteren Verfeinerungen der Kategorie Jazz darstellen, wähle für beide die Kategorie Jazz als übergeordnete Kategorie aus dem Drop-down-Menü."
+msgstr "<strong>Übergeordnet</strong> &ndash; Kategorien können, im Gegensatz zu Schlagwörtern, hierarchisch angeordnet werden. Du kannst zum Beispiel eine Kategorie Jazz anlegen und darunter Unterkategorien für Bebop und Big Band. Wie du willst. Um diese als Unterkategorie zu erstellen, wähle für beide die Kategorie Jazz als übergeordnete Kategorie über das Drop-down-Menü aus."
 
 #: wp-admin/edit-tags.php:286
 msgid "<strong>Slug</strong> &mdash; The &#8220;slug&#8221; is the URL-friendly version of the name. It is usually all lowercase and contains only letters, numbers, and hyphens."
@@ -15144,7 +15144,7 @@ msgstr "<strong>Template</strong> &ndash; Manche Themes haben individuelle Templ
 
 #: wp-admin/edit-form-advanced.php:412
 msgid "<strong>Parent</strong> &mdash; You can arrange your pages in hierarchies. For example, you could have an &#8220;About&#8221; page that has &#8220;Life Story&#8221; and &#8220;My Dog&#8221; pages under it. There are no limits to how many levels you can nest pages."
-msgstr "<strong>Eltern</strong> &ndash; Wähle eine andere Seite aus, der diese Seite untergeordnet werden soll, um verschachtelte Seitenstrukturen aufzubauen. Zum Beispiel kannst du eine Seite &#8222;Über mich&#8220; erstellen und dieser anschließend die Seiten &#8222;Mein Haus&#8220;, &#8222;Meine Familie&#8220; und &#8222;Mein Auto&#8220; unterordnen, indem du jeweils &#8222;Über mich&#8220; als Eltern-Seite angibst."
+msgstr "<strong>Übergeordnet</strong> &ndash; Wähle eine andere Seite aus, der diese Seite untergeordnet werden soll, um verschachtelte Seitenstrukturen aufzubauen. Zum Beispiel kannst du eine Seite &#8222;Über mich&#8220; erstellen und dieser anschließend die Seiten &#8222;Mein Haus&#8220;, &#8222;Meine Familie&#8220; und &#8222;Mein Auto&#8220; unterordnen, indem du jeweils &#8222;Über mich&#8220; als übergeordnete Seite angibst."
 
 #: wp-admin/edit-form-advanced.php:407 wp-admin/options-discussion.php:16
 msgid "Discussion Settings"
@@ -15225,7 +15225,7 @@ msgstr "Eine Seite zu erstellen, ist sehr ähnlich wie das Erstellen eines Beitr
 
 #: wp-admin/edit-form-advanced.php:323 wp-admin/edit.php:311
 msgid "Pages are similar to posts in that they have a title, body text, and associated metadata, but they are different in that they are not part of the chronological blog stream, kind of like permanent posts. Pages are not categorized or tagged, but can have a hierarchy. You can nest pages under other pages by making one the &#8220;Parent&#8221; of the other, creating a group of pages."
-msgstr "Seiten sind Beiträgen recht ähnlich. Sie haben einen Titel, Inhalt und weitere Metadaten. Sie erscheinen jedoch nicht im chronologischen Blog-Stream und können auch nicht mit Kategorien und Schlagwörtern verknüpft werden. Dafür können Seiten hierarchisch angeordnet beziehungsweise verschachtelt werden, indem einer Seite &#8222;Eltern&#8220; verpasst werden, also eine andere Seite als übergeordnete Seite festgelegt wird."
+msgstr "Seiten sind Beiträgen recht ähnlich. Sie haben einen Titel, Inhalt und weitere Metadaten. Sie erscheinen jedoch nicht im chronologischen Blog-Stream und können auch nicht mit Kategorien und Schlagwörtern verknüpft werden. Dafür können Seiten hierarchisch angeordnet beziehungsweise verschachtelt werden, indem einer Seite &#8222;Übergeordnet&#8220; verpasst werden, also eine andere Seite als übergeordnete Seite festgelegt wird."
 
 #: wp-admin/edit-form-advanced.php:319
 msgid "<a href=\"https://wordpress.org/documentation/article/write-posts-classic-editor/\">Documentation on Writing and Editing Posts</a>"

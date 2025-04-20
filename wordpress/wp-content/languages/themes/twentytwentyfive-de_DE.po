@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Themes - Twenty Twenty-Five package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-02-16 04:20:24+0000\n"
+"PO-Revision-Date: 2025-04-06 16:08:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -59,11 +59,6 @@ msgstr "Footer"
 msgctxt "Template part name"
 msgid "Header with large title"
 msgstr "Header mit großem Titel"
-
-#: theme.json
-msgctxt "Template part name"
-msgid "Vertical Header"
-msgstr "Vertikaler Header"
 
 #: theme.json
 msgctxt "Template part name"
@@ -427,16 +422,6 @@ msgctxt "Style variation name"
 msgid "Evening"
 msgstr "Abend"
 
-#: patterns/vertical-header.php
-msgctxt "Pattern description"
-msgid "Vertical Header with site title and navigation"
-msgstr "Vertikaler Header mit Website-Titel und Navigation"
-
-#: patterns/vertical-header.php
-msgctxt "Pattern title"
-msgid "Vertical header"
-msgstr "Vertikaler Header"
-
 #: patterns/text-faqs.php:83
 msgctxt "Question in the FAQs pattern."
 msgid "Are signed copies available?"
@@ -553,11 +538,6 @@ msgctxt "Pattern title"
 msgid "Right-aligned single post"
 msgstr "Rechtsbündiger Einzelbeitrag"
 
-#: patterns/template-single-text-blog.php
-msgctxt "Pattern title"
-msgid "Text-only blog, single post"
-msgstr "Nur-Text-Blog, Einzelbeitrag"
-
 #: patterns/template-single-photo-blog.php:79
 msgid "Next Photo"
 msgstr "Nächstes Foto"
@@ -624,11 +604,6 @@ msgctxt "Pattern title"
 msgid "Right-aligned blog, search"
 msgstr "Rechtsbündiger Blog, Suche"
 
-#: patterns/template-search-text-blog.php
-msgctxt "Pattern title"
-msgid "Text-only blog, search"
-msgstr "Nur-Text-Blog, Suche"
-
 #: patterns/template-search-photo-blog.php
 msgctxt "Pattern title"
 msgid "Photo blog search results"
@@ -648,16 +623,6 @@ msgstr "Eine Liste von Beiträgen, 1 Spalte, mit Beitragsbild und Beitragsdatum
 msgctxt "Pattern title"
 msgid "List of posts, 1 column"
 msgstr "Liste von Beiträgen, 1 Spalte"
-
-#: patterns/template-query-loop-vertical-header-blog.php
-msgctxt "Pattern title"
-msgid "Right-aligned posts"
-msgstr "Rechtsbündige Beiträge"
-
-#: patterns/template-query-loop-text-blog.php
-msgctxt "Pattern title"
-msgid "Text-only blog, posts"
-msgstr "Nur-Text-Blog, Beiträge"
 
 #: patterns/template-query-loop-photo-blog.php
 msgctxt "Pattern description"
@@ -687,11 +652,6 @@ msgctxt "Pattern title"
 msgid "News blog query loop"
 msgstr "Abfrageschleife des Nachrichten-Blogs"
 
-#: patterns/template-page-vertical-header-blog.php
-msgctxt "Pattern title"
-msgid "Page template for the right-aligned blog"
-msgstr "Seiten-Template für den rechtsbündigen Blog"
-
 #: patterns/template-page-photo-blog.php
 msgctxt "Pattern title"
 msgid "Photo blog page"
@@ -705,16 +665,6 @@ msgstr "Das Neueste"
 msgctxt "Pattern title"
 msgid "News blog with sidebar"
 msgstr "Nachrichten-Blog mit Seitenleiste"
-
-#: patterns/template-home-vertical-header-blog.php
-msgctxt "Pattern title"
-msgid "Homepage for right-aligned blog"
-msgstr "Homepage für rechtsbündigen Blog"
-
-#: patterns/template-home-text-blog.php
-msgctxt "Pattern title"
-msgid "Text-only blog, home"
-msgstr "Nur-Text-Blog, Startseite"
 
 #: patterns/template-home-posts-grid-news-blog.php:114
 msgid "Architecture"
@@ -735,16 +685,6 @@ msgctxt "Pattern title"
 msgid "News blog home"
 msgstr "Startseite des Nachrichten-Blogs"
 
-#: patterns/template-archive-vertical-header-blog.php
-msgctxt "Pattern title"
-msgid "Archive for the right-aligned blog"
-msgstr "Archiv für den rechtsbündigen Blog"
-
-#: patterns/template-archive-text-blog.php
-msgctxt "Pattern title"
-msgid "Text-only blog, archive"
-msgstr "Nur-Text-Blog, Archiv"
-
 #: patterns/template-archive-photo-blog.php
 msgctxt "Pattern title"
 msgid "Photo blog archive"
@@ -754,11 +694,6 @@ msgstr "Fotoblog-Archiv"
 msgctxt "Pattern title"
 msgid "News blog archive"
 msgstr "Nachrichten-Blogarchiv"
-
-#: patterns/template-404-vertical-header-blog.php
-msgctxt "Pattern title"
-msgid "Right-aligned blog, 404"
-msgstr "Rechtsbündiger Blog, 404"
 
 #: patterns/services-team-photos.php:50
 msgid "Man in hat, standing in front of a building."
@@ -1270,7 +1205,7 @@ msgstr "Es wurde leider nichts gefunden. Bitte versuche eine Suche mit anderen S
 #: patterns/template-home-posts-grid-news-blog.php:34
 #: patterns/template-home-with-sidebar-news-blog.php:61
 msgid "Add text or blocks that will display when a query returns no results."
-msgstr "Fügt Text oder Blöcke hinzu, die angezeigt werden, wenn eine Abfrage keine Ergebnisse ausgibt."
+msgstr "Füge Text oder Blöcke hinzu, die angezeigt werden, wenn eine Abfrage keine Ergebnisse ausgibt."
 
 #: patterns/hidden-sidebar.php:14
 msgid "Other Posts"
@@ -1393,11 +1328,6 @@ msgctxt "Pattern title"
 msgid "Hero, overlapped book cover with links"
 msgstr "Hero, überlappendes Buchcover mit Links"
 
-#: patterns/hero-full-width-image.php:33
-msgctxt "Sample hero button"
-msgid "Learn More"
-msgstr "Mehr erfahren"
-
 #: patterns/hero-full-width-image.php:27
 msgctxt "Sample hero paragraph"
 msgid "Like flowers that bloom in unexpected places, every story unfolds with beauty and resilience, revealing hidden wonders."
@@ -1477,19 +1407,9 @@ msgid "Heading and paragraph with image on the right"
 msgstr "Überschrift und Absatz mit Bild rechts"
 
 #: patterns/header.php
-msgctxt "Pattern description"
-msgid "Header with site title and navigation."
-msgstr "Header mit Website-Titel und Navigation."
-
-#: patterns/header.php
 msgctxt "Pattern title"
 msgid "Header"
 msgstr "Header"
-
-#: patterns/header-large-title.php
-msgctxt "Pattern description"
-msgid "Header with large site title and right-aligned navigation."
-msgstr "Header mit großem Website-Titel und rechtsbündiger Navigation."
 
 #: patterns/header-large-title.php
 msgctxt "Pattern title"
@@ -1497,24 +1417,9 @@ msgid "Header with large title"
 msgstr "Header mit großem Titel"
 
 #: patterns/header-columns.php
-msgctxt "Pattern description"
-msgid "Header with site title and navigation in columns."
-msgstr "Header mit Website-Titel und Navigation in Spalten."
-
-#: patterns/header-columns.php
 msgctxt "Pattern title"
 msgid "Header with columns"
 msgstr "Header mit Spalten"
-
-#: patterns/header-centered.php
-msgctxt "Pattern description"
-msgid "Header with centered site title and navigation."
-msgstr "Header mit zentriertem Website-Titel und Navigation."
-
-#: patterns/header-centered.php
-msgctxt "Pattern title"
-msgid "Centered header"
-msgstr "Zentrierter Header"
 
 #: patterns/grid-with-categories.php:64
 msgid "Sunflowers"
@@ -1956,7 +1861,8 @@ msgctxt "Pattern title"
 msgid "Events list"
 msgstr "Veranstaltungsliste"
 
-#: patterns/cta-centered-heading.php:28
+#: patterns/banner-intro-image.php:42 patterns/cta-centered-heading.php:28
+#: patterns/hero-full-width-image.php:33
 msgid "Learn more"
 msgstr "Mehr erfahren"
 
@@ -2329,11 +2235,6 @@ msgstr "Eine große, linksbündige Überschrift mit einem in Fettschrift hervorg
 msgctxt "Pattern title"
 msgid "Intro with left-aligned description"
 msgstr "Intro mit linksbündiger Beschreibung"
-
-#: patterns/banner-intro-image.php:42
-msgctxt "Button text of intro section."
-msgid "Learn More"
-msgstr "Mehr erfahren"
 
 #: patterns/banner-intro-image.php:35
 msgctxt "Sample description for banner with flower."

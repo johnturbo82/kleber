@@ -28,7 +28,7 @@ get_header(); ?>
                 <p>40h / Woche</p>
             </div>
         </div>
-        <a href="#">&raquo; Zu weiteren Stellenangeboten</a>
+        <a href="/karriere">&raquo; Zu weiteren Stellenangeboten</a>
     </div>
 </div>
 <div class="stage content-container services">

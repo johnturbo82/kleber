@@ -113,7 +113,12 @@ a {
     font-weight: bold;
 }
 
-.content h1:first-of-type {
+.content h1:first-of-type,
+.content h2:first-of-type,
+.content h3:first-of-type,
+.content h4:first-of-type,
+.content h5:first-of-type,
+.content h6:first-of-type {
     margin-top: 0;
 }
 

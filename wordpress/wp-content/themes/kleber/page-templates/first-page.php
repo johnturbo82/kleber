@@ -12,21 +12,27 @@ get_header(); ?>
         <?php endwhile; ?>
         <h2>Aktuelle Stellenangebote</h2>
         <div class="jobs">
-            <div class="job">
-                <p>Ab sofort</p>
-                <p><a href="#">Heizungsbaumeister/in in Teilzeit</a></p>
-                <p>bis 20h / Woche</p>
-            </div>
-            <div class="job">
-                <p>Ab sofort</p>
-                <p><a href="#">Teamassistenz</a></p>
-                <p>40h / Woche</p>
-            </div>
-            <div class="job">
-                <p>Ab sofort</p>
-                <p><a href="#">Heizungsmonteur/in in Vollzeit</a></p>
-                <p>40h / Woche</p>
-            </div>
+            <?php
+            // WP_Query für den Custom Post Type "Jobs"
+            $jobs_query = new WP_Query(array(
+                'post_type' => 'jobs', // Custom Post Type "Jobs"
+                'posts_per_page' => 3, // Anzahl der angezeigten Jobs
+                'orderby' => 'date', // Sortierung nach Datum
+                'order' => 'DESC' // Neueste zuerst
+            ));
+
+            if ($jobs_query->have_posts()) :
+                while ($jobs_query->have_posts()) : $jobs_query->the_post(); ?>
+                    <div class="job">
+                        <p><?php echo get_post_meta(get_the_ID(), 'job_start_date', true) ?: 'Ab sofort'; ?></p>
+                        <p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
+                        <p><?php echo get_post_meta(get_the_ID(), 'job_hours', true) ?: '40h / Woche'; ?></p>
+                    </div>
+                <?php endwhile;
+                wp_reset_postdata(); // Reset der Query
+            else : ?>
+                <p>Derzeit sind keine Stellenangebote verfügbar.</p>
+            <?php endif; ?>
         </div>
         <a href="/karriere">&raquo; Zu weiteren Stellenangeboten</a>
     </div>

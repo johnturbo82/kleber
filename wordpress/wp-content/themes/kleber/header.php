@@ -11,12 +11,14 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <div class="container"> 
-        <div class="header content">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/kleber_logo_voll.svg" alt="Kleber Logo" />
-            <?php wp_nav_menu(array('menu' => 'Hauptmenü', 'container_class' => 'navigation')) ?>
-            <div class="hamburger">
-                <div></div>
+    <div class="container">
+        <div class="header">
+            <div class="content">
+                <img class="logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/kleber_logo_kleiner.svg" alt="Kleber Logo" />
+                <?php wp_nav_menu(array('menu' => 'Hauptmenü', 'container_class' => 'navigation')) ?>
+                <div class="hamburger">
+                    <div></div>
+                </div>
             </div>
         </div>
         <div id="header-scrolling" class="header-scrolling">

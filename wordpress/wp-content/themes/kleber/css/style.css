@@ -26,6 +26,8 @@
     font-weight: bold
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 * {
     --color-dark-grey: #3b3b3b;
     --color-dark-grey-transparent: #3b3b3b80;
@@ -37,8 +39,7 @@
     --content-width: 1200px;
     --margin: 30px;
     --padding: 30px;
-    --border-radius-round: 8px 8px 8px 75px;
-    --border-radius: 8px;
+    --border-radius: 3px;
     --border: 3px solid var(--color-red);
     --box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     box-sizing: border-box;
@@ -57,6 +58,42 @@ a {
     color: var(--color-red);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Bebas Neue", cursive;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 42px;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+h4 {
+    font-size: 24px;
+}
+
+h5 {
+    font-size: 21px;
+}
+
+h6 {
+    font-size: 18px;
+}
+
 .container {
     width: 100%;
     background-color: var(--color-light-grey);
@@ -64,7 +101,7 @@ a {
     padding-bottom: var(--margin);
     background-image: url('../assets/images/kleber_logo_bg.svg');
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center;
     background-size: cover;
     padding: 0;
     padding-bottom: var(--padding);
@@ -79,38 +116,10 @@ a {
 .content {
     width: var(--content-width);
     margin: 0 auto;
-    border-bottom-left-radius: 75px;
+    padding: var(--padding);
+    position: relative;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    padding: 20px;
-}
-
-.content .entry-content {
-    width: 70%;
-}
-
-.stage.first-page .entry-content .jobs {
-    display: grid;
-    background-color: initial;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
-
-.stage.first-page .entry-content .jobs .job {
-    background-color: var(--color-light-grey-transparent);
-    height: 140px;
-    border-radius: var(--border-radius);
-    color: var(--color-black);
-    padding: 10px;
-}
-
-.stage.first-page .entry-content .jobs .job p {
-    margin: 0 0 4px 0;
-}
-
-.stage.first-page .entry-content .jobs .job p a {
-    font-weight: bold;
 }
 
 .content h1:first-of-type,
@@ -125,35 +134,33 @@ a {
 .header {
     position: relative;
     background-color: var(--color-white);
-    height: 120px;
-    overflow: hidden;
-    border-radius: var(--border-radius-round);
+    height: 70px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    margin-bottom: var(--margin);
+    margin-bottom: 40px;
+    top: 12px;
+    box-shadow: var(--box-shadow);
 }
 
-.header img {
+.header img.logo {
     display: inline-block;
-    max-height: 103px;
-    margin-left: -10px;
-    margin-top: -11px;
+    max-height: 90px;
+    margin: -39px 0 0 -33px;
 }
 
-.header .navigation ul {
+.header .navigation {
     position: absolute;
-    right: var(--margin);
-    top: -16px;
+    right: 0;
+    top: -20px;
     font-size: 20px;
 }
 
-.header .navigation ul li {
+.header .navigation li {
     display: inline-block;
     list-style: none;
-    color: var(--color-black);
     font-size: 20px;
     text-decoration: none;
-    padding: 40px 20px;
+    padding: 20px 20px;
     margin: 0;
     position: relative;
     z-index: 1;
@@ -161,24 +168,49 @@ a {
     transition: color 0.3s;
 }
 
-.header .navigation ul li a {
+.header .navigation li a {
+    color: var(--color-black);
+    text-decoration: none;
+}
+
+.header .navigation li.active a {
+    border-bottom: 3px solid var(--color-red);
     text-decoration: none;
     color: var(--color-black);
-    border-bottom: 3px solid transparent;
-    transition: border-color 0.3s ease;
 }
 
-.header .navigation ul li a:hover {
-    border-bottom: 3px solid var(--color-red);
+.header .navigation li::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: var(--color-red);
+    transition: width 0.3s, height 0.3s, left 0.3s, top 0.3s;
+    z-index: -1;
 }
 
-.header .navigation ul li.current-menu-item a {
-    border-bottom: 3px solid var(--color-mid-grey);
+.header .navigation li:hover  a{
+    color: var(--color-white);
+    transition: all;
+    transition-duration: 500ms;
+}
+
+.header .navigation li:hover::after {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.header .content {
+    box-shadow: none;
 }
 
 .hamburger {
     display: none;
-    top: 56px;
+    top: 34px;
     right: 0;
     cursor: pointer;
     transform: translate(-50%, -50%);
@@ -220,6 +252,7 @@ a {
     left: 0;
     overflow: hidden;
     border-bottom: var(--border);
+    z-index: 1000;
 }
 
 .header-scrolling .scrolling-nav-container {
@@ -227,7 +260,6 @@ a {
     height: 24px;
     padding: 3px 0;
     width: var(--content-width);
-    color: var(--color-white);
 }
 
 .header-scrolling .scrolling-nav-container img {
@@ -245,14 +277,14 @@ a {
     list-style: none;
 }
 
+.header-scrolling .scrolling-nav-container ul li a {
+    color: var(--color-white);
+    text-decoration: none;
+}
+
 .header-scrolling .scrolling-nav-container ul li+li {
     height: 100%;
     margin-left: 10px;
-}
-
-.header-scrolling .scrolling-nav-container ul li a {
-    text-decoration: none;
-    color: var(--color-white);
 }
 
 .stage {
@@ -269,6 +301,34 @@ a {
     background-position: right;
     background-size: contain;
     background-repeat: no-repeat;
+}
+
+.stage.first-page .entry-content {
+    width: 66%;
+}
+
+.stage.first-page .entry-content .jobs {
+    display: grid;
+    background-color: initial;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.stage.first-page .entry-content .jobs .job {
+    background-color: var(--color-light-grey-transparent);
+    height: 140px;
+    border-radius: var(--border-radius);
+    color: var(--color-black);
+    padding: 10px;
+}
+
+.stage.first-page .entry-content .jobs .job p {
+    margin: 0 0 4px 0;
+}
+
+.stage.first-page .entry-content .jobs .job p a {
+    font-weight: bold;
 }
 
 .stage.team {
@@ -304,6 +364,9 @@ a {
     position: absolute;
     bottom: 20px;
     background-color: rgba(0, 0, 0, 0.8);
+    font-family: "Bebas Neue", cursive;
+    font-weight: 400;
+    font-style: normal;
     font-size: 20px;
 }
 
@@ -365,29 +428,46 @@ a {
     color: var(--color-white);
 }
 
-.emergency-bar .inner-content {
+.emergency-bar .emergency-content {
     max-width: var(--content-width);
     margin: 0 auto;
     padding: 4px;
 }
 
-.emergency-bar .inner-content p {
+.emergency-bar .emergency-content p,
+.emergency-bar .emergency-content svg {
     margin: 0;
     font-size: 18px;
+    display: flex;
+    align-items: flex-start;
 }
 
-.emergency-bar .inner-content p:first-of-type {
+.emergency-bar .emergency-content p:first-of-type {
     font-size: 24px;
 }
 
-.emergency-bar .inner-content a {
+.emergency-bar .emergency-content a {
     color: var(--color-white);
     cursor: pointer;
     text-decoration: none;
 }
 
-.emergency-bar .inner-content a:hover {
+.emergency-bar .emergency-content a+svg {
+    margin-left: 10px;
+}
+
+.emergency-bar .emergency-content a:hover {
     text-decoration: underline;
+}
+
+.emergency-bar a {
+    margin-top: -4px;
+    display: inline-block;
+}
+
+.emergency-bar svg {
+    height: 18px;
+    margin-right: 6px;
 }
 
 @media screen and (max-width: 1200px) {

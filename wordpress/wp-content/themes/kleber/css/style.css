@@ -26,7 +26,11 @@
     font-weight: bold
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@font-face {
+    font-family: "Bebas Neue";
+    src: url("../assets/fonts/BebasNeue-Regular.ttf") format("truetype");
+    font-style: normal;
+}
 
 * {
     --color-dark-grey: #3b3b3b;
@@ -52,6 +56,7 @@ body {
     font-weight: 300;
     font-style: normal;
     background-color: var(--color-dark-grey);
+    hyphens: auto;
 }
 
 a {
@@ -68,6 +73,7 @@ h6 {
     font-weight: 400;
     font-style: normal;
     line-height: 1.2;
+    hyphens: none;
 }
 
 h1 {
@@ -316,7 +322,7 @@ h1.title::before {
     text-decoration: overline;
 }
 
-.header-scrolling .scrolling-nav-container ul li + li {
+.header-scrolling .scrolling-nav-container ul li+li {
     height: 100%;
     margin-left: 10px;
 }
@@ -328,6 +334,10 @@ h1.title::before {
 
 .stage+.stage {
     margin-top: var(--margin);
+}
+
+.stage p {
+    text-align: justify;
 }
 
 .stage.first-page {
@@ -441,6 +451,10 @@ h1.title::before {
     text-align: center;
 }
 
+.footer .content img {
+    max-width: 100%;
+}
+
 .map {
     height: 400px;
     width: 100%;
@@ -460,6 +474,7 @@ h1.title::before {
     bottom: 0;
     left: 0;
     color: var(--color-white);
+    box-shadow: var(--box-shadow);
 }
 
 .emergency-bar .emergency-content {
@@ -521,7 +536,8 @@ h1.title::before {
         margin: -39px 0 0 -20px;
     }
 
-    .content, .content-container {
+    .content,
+    .content-container {
         width: 100%;
     }
 
@@ -537,4 +553,14 @@ h1.title::before {
         padding: 0 10px;
     }
 
+}
+
+@media screen and (max-width: 380px) {
+    .emergency-bar {
+        height: 50px;
+    }
+
+    .emergency-bar * {
+        zoom: 0.9;
+    }
 }

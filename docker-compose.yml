@@ -38,4 +38,4 @@ services:
       PMA_PORT: 3306
       MYSQL_ROOT_PASSWORD: ${MARIADB_PASSWORD}
     ports:
-      - "8081:80"
+      - "8081:5532"

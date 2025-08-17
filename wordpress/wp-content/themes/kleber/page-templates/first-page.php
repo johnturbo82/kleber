@@ -13,12 +13,11 @@ get_header(); ?>
         <h2>Aktuelle Stellenangebote</h2>
         <div class="jobs">
             <?php
-            // WP_Query für den Custom Post Type "Jobs"
             $jobs_query = new WP_Query(array(
-                'post_type' => 'jobs', // Custom Post Type "Jobs"
-                'posts_per_page' => 3, // Anzahl der angezeigten Jobs
-                'orderby' => 'date', // Sortierung nach Datum
-                'order' => 'DESC' // Neueste zuerst
+                'post_type' => 'jobs',
+                'posts_per_page' => 3,
+                'orderby' => 'date',
+                'order' => 'DESC'
             ));
 
             if ($jobs_query->have_posts()) :

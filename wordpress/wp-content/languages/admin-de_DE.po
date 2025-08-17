@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 6.8.x - Development - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-04-25 21:15:30+0000\n"
+"PO-Revision-Date: 2025-04-29 19:57:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1228,7 +1228,7 @@ msgstr "<strong>Schreibe</strong> oder verbessere die Dokumentation für WordPre
 
 #: wp-admin/contribute.php:62
 msgid "<strong>Share</strong> your knowledge in the WordPress support forums."
-msgstr "<strong>Teile</strong> dein Wissen in den WordPress-Supportforen."
+msgstr "<strong>Teile</strong> dein Wissen in den WordPress-Support-Foren."
 
 #: wp-admin/contribute.php:60
 msgid "WordPress may thrive on technical contributions, but you don&#8217;t have to code to contribute. Here are some of the ways you can make an impact without writing a single line of code:"
@@ -4264,7 +4264,7 @@ msgstr "Jedem Beitrag in einem Feed Folgendes hinzufügen"
 
 #: wp-admin/options-reading.php:160
 msgid "<strong>Warning:</strong> these pages should not be the same as your Privacy Policy page!"
-msgstr "<strong>Warnung:</strong> Diese Seiten dürfen nicht mit deiner Seite für Datenschutzerklärung übereinstimmen!"
+msgstr "<strong>Warnung:</strong> Diese Seiten dürfen nicht mit der Seite deiner Datenschutzerklärung übereinstimmen!"
 
 #: wp-admin/options-reading.php:53
 msgid "<a href=\"https://wordpress.org/documentation/article/settings-reading-screen/\">Documentation on Reading Settings</a>"
@@ -9860,7 +9860,7 @@ msgstr "Es stehen auch Aktualisierungen für einige deiner Plugins oder Themes z
 #: wp-admin/includes/class-wp-automatic-updater.php:1059
 #: wp-admin/includes/class-wp-automatic-updater.php:1506
 msgid "If you experience any issues or need support, the volunteers in the WordPress.org support forums may be able to help."
-msgstr "Wenn du irgendwelche Fehler feststellst oder Unterstützung benötigst, steht dir das WordPress.org-Supportforum mit seinen freiwilligen Helfern zur Verfügung."
+msgstr "Wenn du irgendwelche Fehler feststellst oder Unterstützung benötigst, steht dir das WordPress.org-Support-Forum mit seinen freiwilligen Helfern zur Verfügung."
 
 #: wp-admin/includes/class-wp-automatic-updater.php:1065
 #: wp-admin/update-core.php:991

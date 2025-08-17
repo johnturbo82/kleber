@@ -16,4 +16,4 @@
 <meta name="msapplication-square150x150logo" content="<?php echo get_template_directory_uri(); ?>/images/icons/win8-tile-150x150.png">
 <meta name="msapplication-wide310x150logo" content="<?php echo get_template_directory_uri(); ?>/images/icons/win8-tile-310x150.png">
 <meta name="msapplication-square310x310logo" content="<?php echo get_template_directory_uri(); ?>/images/icons/win8-tile-310x310.png">
-<meta name="theme-color" content="#2c3135">
+<meta name="theme-color" content="#e4183a">

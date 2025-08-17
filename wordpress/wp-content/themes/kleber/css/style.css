@@ -306,59 +306,6 @@ body.dark .header a.logo {
     transform: scale(0);
 }
 
-.header-scrolling {
-    opacity: 0;
-    background-color: var(--color-dark);
-    height: 30px;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    border-bottom: var(--border);
-    z-index: 1000;
-}
-
-.header-scrolling .scrolling-nav-container {
-    margin: 0 auto;
-    height: 24px;
-    padding: 3px 0;
-    width: var(--content-width);
-}
-
-.header-scrolling .scrolling-nav-container img {
-    height: 100%;
-    float: left;
-}
-
-.header-scrolling .scrolling-nav-container ul {
-    float: right;
-    margin-top: 0;
-}
-
-.header-scrolling .scrolling-nav-container ul li {
-    display: inline-block;
-    list-style: none;
-}
-
-.header-scrolling .scrolling-nav-container ul li a {
-    color: var(--color-background);
-    text-decoration: none;
-}
-
-.header-scrolling .scrolling-nav-container ul li a:hover {
-    color: var(--color-highlight);
-}
-
-.header-scrolling .scrolling-nav-container ul li.current-menu-item a {
-    text-decoration: overline;
-}
-
-.header-scrolling .scrolling-nav-container ul li+li {
-    height: 100%;
-    margin-left: 10px;
-}
-
 .stage {
     background-color: var(--color-background);
     min-height: 400px;
@@ -414,6 +361,25 @@ body.dark .stage.first-page .entry-content .jobs .job {
 
 .stage.first-page .entry-content .jobs .job p a {
     font-weight: bold;
+}
+
+.stage.job-page .jobs .job {
+    background-color: var(--color-light-transparent);
+    border-radius: var(--border-radius);
+    color: var(--color-text);
+    padding: 10px;
+}
+
+body.dark .stage.job-page .jobs .job {
+    background-color: var(--color-dark-transparent);
+}
+
+.stage.job-page .jobs .job + .job {
+    margin-top: 20px;
+}
+
+.stage.job-page .jobs .job p {
+    margin: 0 0 4px 0;
 }
 
 .stage.team {

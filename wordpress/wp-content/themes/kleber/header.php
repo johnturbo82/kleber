@@ -20,9 +20,3 @@
                 </div>
             </div>
         </div>
-        <div id="header-scrolling" class="header-scrolling">
-            <div class="scrolling-nav-container">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/kleber_logo_klein.svg" alt="Logo" />
-                <?php wp_nav_menu(array("menu" => "Hauptmenü", "container_class" => "navigation")) ?>
-            </div>
-        </div>

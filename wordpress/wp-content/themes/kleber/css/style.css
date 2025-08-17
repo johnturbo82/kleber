@@ -463,9 +463,12 @@ body.dark .footer {
 }
 
 .footer .content {
-    color: var(--color-background);
     text-align: center;
     box-shadow: none;
+}
+
+.footer .content h2, p {
+    color: #e7e7e7ff;
 }
 
 .footer .content .logo_rad {

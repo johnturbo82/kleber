@@ -241,8 +241,11 @@ class AmeActorManager implements AmeActorManagerInterface {
 	private readonly superAdmin: AmeSuperAdmin;
 	private exclusiveSuperAdminCapabilities: Record<string, boolean> = {};
 
+	private readonly loggedInUserActor: IAmeActor;
+	private readonly anonymousUserActor: IAmeActor;
+
 	private tagMetaCaps: Record<string, boolean> = {};
-	private suspectedMetaCaps: CapabilityMap;
+	private readonly suspectedMetaCaps: Record<string, string[]>;
 
 	private suggestedCapabilities: AmeCapabilitySuggestion[] = [];
 
@@ -250,7 +253,7 @@ class AmeActorManager implements AmeActorManagerInterface {
 		roles: Record<string, { name: string, capabilities: CapabilityMap }>,
 		users: Record<string, AmeUserPropertyMap>,
 		isMultisite: Truthy | Falsy = false,
-		suspectedMetaCaps: CapabilityMap = {}
+		suspectedMetaCaps: Record<string, string[]> = {}
 	) {
 		this.isMultisite = !!isMultisite;
 
@@ -293,6 +296,31 @@ class AmeActorManager implements AmeActorManagerInterface {
 		for (let i = 0; i < tagMetaCaps.length; i++) {
 			this.tagMetaCaps[tagMetaCaps[i]] = true;
 		}
+
+		this.loggedInUserActor = new class extends AmeBaseActor {
+			constructor() {
+				super('special:logged_in_user', 'Logged In Users', {});
+			}
+
+			hasOwnCap(capability: string): boolean | null {
+				//The only capability that *all* roles and users have is the special "exist" capability.
+				return (capability === 'exist');
+			}
+		};
+
+		this.anonymousUserActor = new class extends AmeBaseActor {
+			constructor() {
+				super('special:anonymous_user', 'Logged Out Users', {});
+			}
+
+			hasOwnCap(): boolean | null {
+				//Anonymous visitors usually have no capabilities.
+				return false;
+			}
+		}
+
+		this.addSpecialActor(this.loggedInUserActor);
+		this.addSpecialActor(this.anonymousUserActor);
 	}
 
 	// noinspection JSUnusedGlobalSymbols
@@ -453,11 +481,47 @@ class AmeActorManager implements AmeActorManagerInterface {
 		return capability;
 	}
 
-	addSpecialActor(actor: IAmeActor) {
-		if (actor.getId() === AmeSuperAdmin.permanentActorId) {
-			throw 'The Super Admin actor is immutable and cannot be replaced.';
+	/**
+	 * Check if an actor might have a suspected meta capability.
+	 *
+	 * Returns NULL if the capability is not a detected meta capability, or if the actor ID is invalid.
+	 */
+	maybeHasMetaCap(actorId: string, metaCapability: string): null | { prediction: boolean | null } {
+		//Is this a meta capability?
+		if (!this.suspectedMetaCaps.hasOwnProperty(metaCapability)) {
+			return null;
 		}
-		this.specialActors[actor.getId()] = actor;
+
+		const actor = this.getActor(actorId);
+		if (actor === null) {
+			return null;
+		}
+
+		//For some actors like the current user, we might already know whether they have
+		//the meta capability. The plugin checks that when opening the menu editor.
+		const hasOwnCap = actor.hasOwnCap(metaCapability);
+		if (hasOwnCap !== null) {
+			return {prediction: hasOwnCap};
+		}
+
+		const mappedCaps = this.suspectedMetaCaps[metaCapability];
+		//If we don't know what capabilities this meta capability maps to, we can't predict
+		//whether the actor has it or not.
+		if (mappedCaps.length < 1) {
+			return {prediction: null};
+		}
+
+		//The actor needs to have all the mapped capabilities to have the meta capability.
+		for (const cap of mappedCaps) {
+			if (this.actorHasCap(actorId, cap) !== true) {
+				return {prediction: false};
+			}
+		}
+		return {prediction: true};
+	}
+
+	getSuspectedMetaCaps(): string[] {
+		return AmeActorManager._.keys(this.suspectedMetaCaps);
 	}
 
 	/* -------------------------------
@@ -471,10 +535,6 @@ class AmeActorManager implements AmeActorManagerInterface {
 	roleExists(roleId: string): boolean {
 		return this.roles.hasOwnProperty(roleId);
 	};
-
-	getSuperAdmin(): AmeSuperAdmin {
-		return this.superAdmin;
-	}
 
 	/* -------------------------------
 	 * Users
@@ -496,6 +556,34 @@ class AmeActorManager implements AmeActorManagerInterface {
 
 	getGroupActorsFor(userLogin: string) {
 		return this.users[userLogin].groupActors;
+	}
+
+	/* -------------------------------
+	 * Special actors
+	 * ------------------------------- */
+
+	getSuperAdmin(): AmeSuperAdmin {
+		return this.superAdmin;
+	}
+
+	/**
+	 * Get the special actor that represents any logged-in user.
+	 *
+	 * Note: Not to be confused with the specific user that's currently logged in.
+	 */
+	getGenericLoggedInUser(): IAmeActor {
+		return this.loggedInUserActor;
+	}
+
+	getAnonymousUser(): IAmeActor {
+		return this.anonymousUserActor
+	}
+
+	addSpecialActor(actor: IAmeActor) {
+		if (actor.getId() === AmeSuperAdmin.permanentActorId) {
+			throw 'The Super Admin actor is immutable and cannot be replaced.';
+		}
+		this.specialActors[actor.getId()] = actor;
 	}
 
 	/* -------------------------------
@@ -985,6 +1073,50 @@ const AmeActorFeatureStrategyDefaults: Omit<AmeActorFeatureStrategySettings, Ame
 	roleCombinationMode: AmeRoleCombinationMode.CustomOrSome,
 	noValueDefault: false,
 	autoResetAll: true,
+}
+
+type AmeFeatureStrategySerializableInputs = Partial<
+	Pick<AmeActorFeatureStrategySettings, 'superAdminDefault' | 'noValueDefault'>
+	& {
+	roleDefault: boolean | null | Record<string, boolean | null>;
+	roleCombinationMode: 'Every' | 'Some' | 'CustomOrSome';
+}>;
+
+function ameUnserializeFeatureStrategySettings(input: AmeFeatureStrategySerializableInputs): Partial<AmeActorFeatureStrategySettings> {
+	const unserialized: Partial<AmeActorFeatureStrategySettings> = {};
+
+	if (typeof input.superAdminDefault !== 'undefined') {
+		unserialized.superAdminDefault = input.superAdminDefault;
+	}
+
+	if (typeof input.noValueDefault !== 'undefined') {
+		unserialized.noValueDefault = input.noValueDefault;
+	}
+
+	if (typeof input.roleDefault !== 'undefined') {
+		if ((input.roleDefault === null) || (typeof input.roleDefault === 'boolean')) {
+			unserialized.roleDefault = input.roleDefault;
+		} else {
+			const copy = Object.assign({}, input.roleDefault);
+			unserialized.roleDefault = (roleName: string) => copy[roleName] || null;
+		}
+	}
+
+	if (typeof input.roleCombinationMode === 'string') {
+		switch (input.roleCombinationMode) {
+			case 'Every':
+				unserialized.roleCombinationMode = AmeRoleCombinationMode.Every;
+				break;
+			case 'Some':
+				unserialized.roleCombinationMode = AmeRoleCombinationMode.Some;
+				break;
+			case 'CustomOrSome':
+				unserialized.roleCombinationMode = AmeRoleCombinationMode.CustomOrSome;
+				break;
+		}
+	}
+
+	return unserialized;
 }
 
 class AmeActorFeatureStrategy {

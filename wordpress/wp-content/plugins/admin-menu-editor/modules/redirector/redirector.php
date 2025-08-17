@@ -14,9 +14,11 @@ use WP_User;
 use YahnisElsts\AdminMenuEditor\Options\Option;
 use YahnisElsts\AdminMenuEditor\Options\Some;
 use YahnisElsts\AdminMenuEditor\Options\None;
+use YahnisElsts\AjaxActionWrapper\v2\Action;
 
 class Module extends amePersistentModule {
 	const FILTER_PRIORITY = 1000000;
+	const DEFAULT_SETTING_ACTOR_ID = 'special:default';
 	const UI_SCRIPT_HANDLE = 'ame-redirector-ui';
 
 	const FIRST_LOGIN_AGE_LIMIT_IN_DAYS = 14;
@@ -69,8 +71,8 @@ class Module extends amePersistentModule {
 		}
 
 		if ( is_admin() ) {
-			$this->searchUsersAction = ajaw_v1_CreateAction('ws-ame-rui-search-users')
-				->requiredParam('term')
+			$this->searchUsersAction = Action::builder('ws-ame-rui-search-users')
+				->requiredParam('term', Action::PARSE_STRING)
 				->method('get')
 				->permissionCallback([$this, 'userCanSearchUsers'])
 				->handler([$this, 'ajaxSearchUsers'])
@@ -111,7 +113,7 @@ class Module extends amePersistentModule {
 	 * @return array<string,bool>
 	 */
 	protected function getUserActors(WP_User $user) {
-		$actorIds = ['special:default' => true]; //The "default" setting applies to every user.
+		$actorIds = [self::DEFAULT_SETTING_ACTOR_ID => true]; //The "default" setting applies to every user.
 
 		if ( !isset($user) ) {
 			return $actorIds;
@@ -308,6 +310,7 @@ class Module extends amePersistentModule {
 		return $user;
 	}
 
+	/** @noinspection PhpVariableIsUsedOnlyInClosureInspection */
 	public function enqueueTabScripts() {
 		parent::enqueueTabScripts();
 
@@ -323,7 +326,7 @@ class Module extends amePersistentModule {
 				'ame-actor-manager',
 				'ame-knockout-sortable',
 				'ame-lodash',
-				$this->searchUsersAction->getScriptHandle(),
+				$this->searchUsersAction->getRegisteredScriptHandle(),
 			]
 		);
 
@@ -351,6 +354,10 @@ class Module extends amePersistentModule {
 		if ( $this->menuEditor->get_plugin_option('delete_orphan_actor_settings') ) {
 			$cleaner = new \ameActorAccessCleaner();
 			$flattenedRedirects = array_filter($flattenedRedirects, function ($details) use ($cleaner) {
+				//Special case: the "actor" that holds the default setting is always valid.
+				if ( $details['actorId'] === self::DEFAULT_SETTING_ACTOR_ID ) {
+					return true;
+				}
 				return $cleaner->tryActorExists($details['actorId'], true);
 			});
 
@@ -420,7 +427,7 @@ class Module extends amePersistentModule {
 			$params['selectedTrigger'] = strval($post['selectedTrigger']);
 		}
 
-		wp_redirect($this->getTabUrl($params));
+		wp_safe_redirect($this->getTabUrl($params));
 		exit;
 	}
 

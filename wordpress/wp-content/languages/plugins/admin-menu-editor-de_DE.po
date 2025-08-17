@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Admin Menu Editor - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-09-30 18:44:56+0000\n"
+"PO-Revision-Date: 2025-06-11 19:16:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,19 +11,36 @@ msgstr ""
 "Language: de\n"
 "Project-Id-Version: Plugins - Admin Menu Editor - Stable (latest release)\n"
 
-#: modules/actor-selector/actor-selector.php:48
-msgid "You don't have permission to use Admin Menu Editor Pro."
-msgstr "Du hast keine Berechtigung Admin Menu Editor Pro zu verwenden."
+#: modules/content-permissions/policy.php:570
+msgctxt "content permissions: action name"
+msgid "Publish"
+msgstr "Veröffentlichen"
 
-#: modules/actor-selector/actor-selector.php:45
-msgid "Access denied. Invalid nonce."
-msgstr "Zugriff verweigert. Ungültiger Nonce."
+#: modules/content-permissions/policy.php:561
+msgctxt "content permissions: action name"
+msgid "Delete"
+msgstr "Löschen"
 
-#: includes/shadow_plugin_framework.php:304
+#: modules/content-permissions/policy.php:552
+msgctxt "content permissions: action name"
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: modules/content-permissions/metabox-template.php:310
+msgctxt "content permissions: redirect URL field label"
+msgid "URL:"
+msgstr "URL:"
+
+#: modules/content-permissions/metabox-template.php:290
+msgctxt "content permissions: label for the custom message field for the \"Block access\" option"
+msgid "Error message:"
+msgstr "Fehlermeldung:"
+
+#: includes/shadow_plugin_framework.php:308
 msgid "Settings"
 msgstr "﻿Einstellungen"
 
-#: includes/menu-editor-core.php:3187
+#: includes/menu-editor-core.php:3371
 msgid "Settings saved."
 msgstr "Die Einstellungen wurden gespeichert."
 
@@ -37,11 +54,6 @@ msgstr "http://w-shadow.com/blog/"
 msgid "Janis Elsts"
 msgstr "Janis Elsts"
 
-#. Description of the plugin
-#: menu-editor.php
-msgid "Lets you directly edit the WordPress admin menu. You can re-order, hide or rename existing menus, add custom menus and more."
-msgstr "Ermöglicht dir die direkte Bearbeitung des WordPress-Administrationsmenüs. Du kannst bestehende Menüs neu anordnen, ausblenden oder umbenennen, individuelle Menüs hinzufügen und mehr."
-
 #. Plugin URI of the plugin
 #: menu-editor.php
 msgid "http://w-shadow.com/blog/2008/12/20/admin-menu-editor-for-wordpress/"
@@ -51,3 +63,16 @@ msgstr "http://w-shadow.com/blog/2008/12/20/admin-menu-editor-for-wordpress/"
 #: menu-editor.php
 msgid "Admin Menu Editor"
 msgstr "Admin Menu Editor"
+
+#: modules/actor-selector/actor-selector.php:57
+msgid "You don't have permission to use Admin Menu Editor Pro."
+msgstr "Du hast keine Berechtigung Admin Menu Editor Pro zu verwenden."
+
+#: modules/actor-selector/actor-selector.php:54
+msgid "Access denied. Invalid nonce."
+msgstr "Zugriff verweigert. Ungültiger Nonce."
+
+#. Description of the plugin
+#: menu-editor.php
+msgid "Lets you directly edit the WordPress admin menu. You can re-order, hide or rename existing menus, add custom menus and more."
+msgstr "Ermöglicht dir die direkte Bearbeitung des WordPress-Administrationsmenüs. Du kannst bestehende Menüs neu anordnen, ausblenden oder umbenennen, individuelle Menüs hinzufügen und mehr."

@@ -5,13 +5,13 @@
 get_header();
 ?>
 
-<div class="job-detail content">
-    <h1><?php the_title(); ?></h1>
+<div class="stage content job-details">
+    <h1 class="title"><span><?php the_title(); ?></span></h1>
     <div class="job-meta">
-        <p><strong>Startdatum:</strong> <?php echo get_post_meta(get_the_ID(), 'job_start_date', true) ?: 'Ab sofort'; ?></p>
-        <p><strong>Stunden:</strong> <?php echo get_post_meta(get_the_ID(), 'job_hours', true) ?: '40h / Woche'; ?></p>
+        <p>Startdatum: <?php echo get_post_meta(get_the_ID(), 'job_start_date', true) ?: 'Ab sofort'; ?></p>
+        <p>Stunden: <?php echo get_post_meta(get_the_ID(), 'job_hours', true) ?: '40h / Woche'; ?></p>
         <?php if (has_category()) : ?>
-            <p><strong>Kategorie:</strong> <?php the_category(', '); ?></p>
+            <p>Kategorie: <?php the_category(', '); ?></p>
         <?php endif; ?>
     </div>
     <div class="job-content">

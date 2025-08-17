@@ -285,7 +285,7 @@ body.dark .header a.logo {
 .hamburger:before,
 .hamburger:after,
 .hamburger div {
-    background: #000;
+    background: var(--color-text);
     content: "";
     display: block;
     height: 6px;
@@ -552,6 +552,7 @@ body.dark .footer .content .logo_rad {
     font-size: 18px;
     display: flex;
     align-items: flex-start;
+    color: white;
 }
 
 .emergency-bar .emergency-content p:first-of-type {
@@ -604,7 +605,7 @@ body.dark .footer .content .logo_rad {
     }
 
     .header a.logo {
-        margin: -39px 0 0 -20px;
+        margin: -9px 0 0 -20px;
     }
 
     .content,
@@ -621,7 +622,7 @@ body.dark .footer .content .logo_rad {
     }
 
     .emergency-bar .emergency-content {
-        padding: 0 10px;
+        padding: 5px 10px;
     }
 
 }

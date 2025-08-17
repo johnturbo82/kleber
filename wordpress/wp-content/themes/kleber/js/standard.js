@@ -19,11 +19,6 @@ window.addEventListener('load', function () {
 
 
 function toggleNav() {
-    const nav = document.getElementById("main-navigation");
-    console.log(nav);
-    if (nav.style.width === "100%") {
-        nav.style.width = "0%";
-    } else {
-        nav.style.width = "100%";
-    }
+    const nav = document.getElementById("overlay-navigation");
+    nav.classList.toggle("open");
 }

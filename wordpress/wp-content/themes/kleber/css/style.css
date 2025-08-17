@@ -43,6 +43,7 @@
     --color-background-fill: #000000;
     --color-text: #000000;
     --color-text-inverted: #ffffff;
+    --color-fix-white: #e7e7e7ff;
     --content-width: 1200px;
     --margin: 30px;
     --padding: 30px;
@@ -83,7 +84,8 @@ a {
     color: var(--color-highlight);
 }
 
-p, li {
+p,
+li {
     color: var(--color-text);
 }
 
@@ -210,14 +212,14 @@ body.dark .header a.logo {
     background-image: url("../assets/images/kleber_logo_web_dark.svg");
 }
 
-.header .navigation {
+.header #main-navigation.navigation {
     position: absolute;
     right: 0;
     top: -20px;
     font-size: 20px;
 }
 
-.header .navigation li {
+.header #main-navigation.navigation li {
     display: inline-block;
     list-style: none;
     font-size: 20px;
@@ -231,18 +233,18 @@ body.dark .header a.logo {
     color: var(--color-text);
 }
 
-.header .navigation li a {
+.header #main-navigation.navigation li a {
     color: var(--color-text);
     text-decoration: none;
 }
 
-.header .navigation li.current-menu-item a {
+.header #main-navigation.navigation li.current-menu-item a {
     border-bottom: 3px solid var(--color-highlight);
     text-decoration: none;
     color: var(--color-text);
 }
 
-.header .navigation li::after {
+.header #main-navigation.navigation li::after {
     content: "";
     position: absolute;
     top: 50%;
@@ -254,17 +256,21 @@ body.dark .header a.logo {
     z-index: -1;
 }
 
-.header .navigation li:hover a {
+.header #main-navigation.navigation li:hover a {
     color: var(--color-background);
     transition: all;
     transition-duration: 200ms;
 }
 
-.header .navigation li:hover::after {
+.header #main-navigation.navigation li:hover::after {
     width: 100%;
     height: 100%;
     left: 0;
     top: 0;
+}
+
+#overlay-navigation {
+    display: none;
 }
 
 .header .content {
@@ -374,7 +380,7 @@ body.dark .stage.job-page .jobs .job {
     background-color: var(--color-dark-transparent);
 }
 
-.stage.job-page .jobs .job + .job {
+.stage.job-page .jobs .job+.job {
     margin-top: 20px;
 }
 
@@ -467,8 +473,9 @@ body.dark .footer {
     box-shadow: none;
 }
 
-.footer .content h2, p {
-    color: #e7e7e7ff;
+.footer .content h2,
+p {
+    color: var(--color-fix-white);
 }
 
 .footer .content .logo_rad {
@@ -554,15 +561,51 @@ body.dark .footer .content .logo_rad {
 
 @media screen and (max-width: 1200px) {
     #main-navigation {
-        width: 0%;
+        display: none;
+    }
+
+    #overlay-navigation {
+        display: block;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        opacity: 0;
+        transform: translateY(-20px);
+        pointer-events: none;
         position: fixed;
+        width: 100%;
         height: 100%;
         top: 0;
         left: 0;
         background-color: var(--color-dark);
         overflow: hidden;
-        transition: 0.5s;
         z-index: 1000;
+    }
+
+    #overlay-navigation.open {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    #overlay-navigation ul li {
+        list-style: none;
+        display: block;
+        margin: 5px;
+        padding: var(--padding);
+        width: 100%;
+        text-align: center;
+    }
+
+    #overlay-navigation ul li a {
+        font-family: "Bebas Neue", cursive;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 20px;
+        color: var(--color-fix-white);
+        text-decoration: none;
+    }
+
+    #overlay-navigation ul li.current-menu-item a {
+        border-bottom: 2px solid var(--color-highlight);
     }
 
     .header-scrolling {

@@ -1,6 +1,14 @@
 <?php
 
 /**
+ * Load theme's javascript
+ */
+function enqueue_scripts() {
+    wp_enqueue_script('standard-js', get_template_directory_uri() . '/js/standard.js', array(), '2', true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_scripts');
+
+/**
  * Add navigation menus.
  */
 register_nav_menus(

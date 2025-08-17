@@ -1,7 +1,7 @@
     </div>
     <div class="footer">
         <div class="content">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/kleber_logo_rad.svg" alt="Logo" />
+            <div class="logo_rad"></div>
             <h2>Impressum</h2>
             <p>Rudolf Kleber</p>
             <p>Installateur- und Heizungsbaumeister</p>

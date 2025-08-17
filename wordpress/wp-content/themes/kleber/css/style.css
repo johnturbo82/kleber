@@ -33,20 +33,36 @@
 }
 
 * {
-    --color-dark-grey: #3b3b3b;
-    --color-dark-grey-transparent: #3b3b3b80;
-    --color-light-grey: #e7e7e7;
-    --color-light-grey-transparent: #e7e7e780;
-    --color-mid-grey: #878787;
-    --color-red: #e4183aff;
-    --color-white: #ffffff;
+    --color-dark: #3b3b3b;
+    --color-dark-transparent: #3b3b3b80;
+    --color-light: #e7e7e7;
+    --color-light-transparent: #e7e7e780;
+    --color-mid: #878787;
+    --color-highlight: #e4183aff;
+    --color-background: #ffffff;
+    --color-background-fill: #000000;
+    --color-text: #000000;
+    --color-text-inverted: #ffffff;
     --content-width: 1200px;
     --margin: 30px;
     --padding: 30px;
     --border-radius: 3px;
-    --border: 3px solid var(--color-red);
+    --border: 3px solid var(--color-highlight);
     --box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     box-sizing: border-box;
+}
+
+body.dark * {
+    --color-dark: #3b3b3b;
+    --color-dark-transparent: #3b3b3b80;
+    --color-light: #292a2b;
+    --color-light-transparent: #e7e7e780;
+    --color-mid: #878787;
+    --color-highlight: #e4183aff;
+    --color-background: #1b1c1c;
+    --color-background-fill: #000000;
+    --color-text: #b4b4b4;
+    --color-text-inverted: #000000;
 }
 
 body {
@@ -55,12 +71,20 @@ body {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
     font-style: normal;
-    background-color: var(--color-dark-grey);
+    background-color: var(--color-dark);
     hyphens: auto;
 }
 
+div {
+    box-sizing: border-box;
+}
+
 a {
-    color: var(--color-red);
+    color: var(--color-highlight);
+}
+
+p, li {
+    color: var(--color-text);
 }
 
 h1,
@@ -74,6 +98,7 @@ h6 {
     font-style: normal;
     line-height: 1.2;
     hyphens: none;
+    color: var(--color-text);
 }
 
 h1 {
@@ -111,7 +136,7 @@ h1.title {
 }
 
 h1.title span {
-    background-color: var(--color-white);
+    background-color: var(--color-background);
     padding: 0 20px;
 }
 
@@ -120,7 +145,7 @@ h1.title::before {
     display: block;
     width: 100%;
     height: 3px;
-    background-color: var(--color-red);
+    background-color: var(--color-highlight);
     margin-top: 24px;
     position: absolute;
     z-index: -2;
@@ -128,7 +153,7 @@ h1.title::before {
 
 .container {
     width: 100%;
-    background-color: var(--color-light-grey);
+    background-color: var(--color-light);
     padding-top: 0;
     padding-bottom: var(--margin);
     background-image: url('../assets/images/kleber_logo_bg.svg');
@@ -137,6 +162,10 @@ h1.title::before {
     background-size: cover;
     padding: 0;
     padding-bottom: var(--padding);
+}
+
+body.dark .container {
+    background-image: url('../assets/images/kleber_logo_bg_dark.svg');
 }
 
 .content-container {
@@ -149,23 +178,15 @@ h1.title::before {
     width: var(--content-width);
     margin: 0 auto;
     padding: var(--padding);
+    padding-top: 1px;
     position: relative;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 }
 
-.content h1:first-of-type,
-.content h2:first-of-type,
-.content h3:first-of-type,
-.content h4:first-of-type,
-.content h5:first-of-type,
-.content h6:first-of-type {
-    margin-top: 0;
-}
-
 .header {
     position: relative;
-    background-color: var(--color-white);
+    background-color: var(--color-background);
     height: 70px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -174,10 +195,19 @@ h1.title::before {
     box-shadow: var(--box-shadow);
 }
 
-.header img.logo {
+.header a.logo {
     display: inline-block;
     max-height: 90px;
-    margin: -39px 0 0 -33px;
+    margin: -9px 0 0 -33px;
+    background-image: url("../assets/images/kleber_logo_web.svg");
+    height: 87px;
+    width: 258px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+body.dark .header a.logo {
+    background-image: url("../assets/images/kleber_logo_web_dark.svg");
 }
 
 .header .navigation {
@@ -198,17 +228,18 @@ h1.title::before {
     z-index: 1;
     display: inline-block;
     transition: color 0.3s;
+    color: var(--color-text);
 }
 
 .header .navigation li a {
-    color: var(--color-black);
+    color: var(--color-text);
     text-decoration: none;
 }
 
 .header .navigation li.current-menu-item a {
-    border-bottom: 3px solid var(--color-red);
+    border-bottom: 3px solid var(--color-highlight);
     text-decoration: none;
-    color: var(--color-black);
+    color: var(--color-text);
 }
 
 .header .navigation li::after {
@@ -218,15 +249,15 @@ h1.title::before {
     left: 50%;
     width: 0;
     height: 0;
-    background-color: var(--color-red);
-    transition: width 0.3s, height 0.3s, left 0.3s, top 0.3s;
+    background-color: var(--color-highlight);
+    transition: width 0.1s, height 0.1s, left 0.1s, top 0.1s;
     z-index: -1;
 }
 
 .header .navigation li:hover a {
-    color: var(--color-white);
+    color: var(--color-background);
     transition: all;
-    transition-duration: 500ms;
+    transition-duration: 200ms;
 }
 
 .header .navigation li:hover::after {
@@ -248,6 +279,7 @@ h1.title::before {
     transform: translate(-50%, -50%);
     position: absolute;
     width: 50px;
+    z-index: 1001;
 }
 
 .hamburger:before,
@@ -276,7 +308,7 @@ h1.title::before {
 
 .header-scrolling {
     opacity: 0;
-    background-color: var(--color-dark-grey);
+    background-color: var(--color-dark);
     height: 30px;
     width: 100%;
     position: fixed;
@@ -310,12 +342,12 @@ h1.title::before {
 }
 
 .header-scrolling .scrolling-nav-container ul li a {
-    color: var(--color-white);
+    color: var(--color-background);
     text-decoration: none;
 }
 
 .header-scrolling .scrolling-nav-container ul li a:hover {
-    color: var(--color-red);
+    color: var(--color-highlight);
 }
 
 .header-scrolling .scrolling-nav-container ul li.current-menu-item a {
@@ -328,7 +360,7 @@ h1.title::before {
 }
 
 .stage {
-    background-color: var(--color-white);
+    background-color: var(--color-background);
     min-height: 400px;
 }
 
@@ -338,6 +370,7 @@ h1.title::before {
 
 .stage p {
     text-align: justify;
+    color: var(--color-text);
 }
 
 .stage.first-page {
@@ -345,6 +378,10 @@ h1.title::before {
     background-position: right;
     background-size: contain;
     background-repeat: no-repeat;
+}
+
+body.dark .stage.first-page {
+    background-image: url("../assets/images/kleber_logo_bg_dark.svg");
 }
 
 .stage.first-page .entry-content {
@@ -360,11 +397,15 @@ h1.title::before {
 }
 
 .stage.first-page .entry-content .jobs .job {
-    background-color: var(--color-light-grey-transparent);
+    background-color: var(--color-light-transparent);
     height: 140px;
     border-radius: var(--border-radius);
-    color: var(--color-black);
+    color: var(--color-text);
     padding: 10px;
+}
+
+body.dark .stage.first-page .entry-content .jobs .job {
+    background-color: var(--color-dark-transparent);
 }
 
 .stage.first-page .entry-content .jobs .job p {
@@ -391,10 +432,10 @@ h1.title::before {
 }
 
 .stage.services div {
-    background-color: var(--color-red);
+    background-color: var(--color-highlight);
     height: 200px;
     border-radius: var(--border-radius);
-    color: var(--color-white);
+    color: var(--color-background);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -407,11 +448,16 @@ h1.title::before {
     padding: 10px;
     position: absolute;
     bottom: 20px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: var(--color-dark-transparent);
     font-family: "Bebas Neue", cursive;
     font-weight: 400;
     font-style: normal;
     font-size: 20px;
+    color: var(--color-text-inverted);
+}
+
+body.dark .stage.services div span {
+    background-color: var(--color-light-transparent);
 }
 
 .stage.services div.klima {
@@ -439,20 +485,36 @@ h1.title::before {
 }
 
 .footer {
-    background-color: var(--color-dark-grey);
+    background-color: var(--color-dark);
     width: 100%;
     padding-top: var(--margin);
     padding-bottom: var(--margin);
     border-top: var(--border);
 }
 
-.footer .content {
-    color: var(--color-white);
-    text-align: center;
+body.dark .footer {
+    background-color: var(--color-background);
 }
 
-.footer .content img {
+.footer .content {
+    color: var(--color-background);
+    text-align: center;
+    box-shadow: none;
+}
+
+.footer .content .logo_rad {
+    height: 400px;
+    width: 400px;
     max-width: 100%;
+    background-image: url("../assets/images/kleber_logo_rad.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin: 0 auto;
+}
+
+body.dark .footer .content .logo_rad {
+    background-image: url("../assets/images/kleber_logo_rad_dark.svg");
 }
 
 .map {
@@ -464,16 +526,17 @@ h1.title::before {
 .map iframe {
     height: 100%;
     width: 100%;
+    border: 0;
 }
 
 .emergency-bar {
-    background-color: var(--color-red);
+    background-color: var(--color-highlight);
     height: 70px;
     width: 100%;
     position: fixed;
     bottom: 0;
     left: 0;
-    color: var(--color-white);
+    color: var(--color-background);
     box-shadow: var(--box-shadow);
 }
 
@@ -496,7 +559,7 @@ h1.title::before {
 }
 
 .emergency-bar .emergency-content a {
-    color: var(--color-white);
+    color: var(--color-background);
     cursor: pointer;
     text-decoration: none;
 }
@@ -520,8 +583,16 @@ h1.title::before {
 }
 
 @media screen and (max-width: 1200px) {
-    .navigation {
-        display: none;
+    #main-navigation {
+        width: 0%;
+        position: fixed;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: var(--color-dark);
+        overflow: hidden;
+        transition: 0.5s;
+        z-index: 1000;
     }
 
     .header-scrolling {
@@ -532,7 +603,7 @@ h1.title::before {
         display: block;
     }
 
-    .header img.logo {
+    .header a.logo {
         margin: -39px 0 0 -20px;
     }
 

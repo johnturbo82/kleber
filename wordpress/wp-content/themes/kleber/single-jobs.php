@@ -9,7 +9,7 @@ get_header();
     <h1 class="title"><span><?php the_title(); ?></span></h1>
     <div class="job-meta">
         <p>Startdatum: <?php echo get_post_meta(get_the_ID(), 'job_start_date', true) ?: 'Ab sofort'; ?></p>
-        <p>Stunden: <?php echo get_post_meta(get_the_ID(), 'job_hours', true) ?: '40h / Woche'; ?></p>
+        <p>Arbeitszeit: <?php echo get_post_meta(get_the_ID(), 'job_hours', true) ?: '40h / Woche'; ?></p>
         <?php if (has_category()) : ?>
             <p>Kategorie: <?php the_category(', '); ?></p>
         <?php endif; ?>

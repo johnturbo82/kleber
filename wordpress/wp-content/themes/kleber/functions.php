@@ -13,7 +13,8 @@ add_action('wp_enqueue_scripts', 'enqueue_scripts');
  */
 register_nav_menus(
     array(
-        'main-menu' => __('Hauptmenü')
+        'main-menu' => __('Hauptmenü'),
+        'top-menu' => __('Topmenü')
     )
 );
 

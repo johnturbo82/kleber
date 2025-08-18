@@ -103,8 +103,6 @@ if ( defined( 'WP_CLI' ) ) {
         $_SERVER['HTTP_HOST'] = '127.0.0.1';
 }
 
-define( 'WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] . '/' );
-define( 'WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/' );
 define( 'WP_AUTO_UPDATE_CORE', false );
 /* That's all, stop editing! Happy publishing. */
 

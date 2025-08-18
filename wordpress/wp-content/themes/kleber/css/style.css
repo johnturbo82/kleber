@@ -192,8 +192,8 @@ body.dark .container {
     height: 70px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    margin-bottom: 40px;
-    top: 12px;
+    margin-bottom: 50px;
+    top: 24px;
     box-shadow: var(--box-shadow);
 }
 
@@ -210,6 +210,27 @@ body.dark .container {
 
 body.dark .header a.logo {
     background-image: url("../assets/images/kleber_logo_web_dark.svg");
+}
+
+.header #top-menu {
+    display: block;
+    position: absolute;
+    top: -42px;
+    right: 0;
+    z-index: 999;
+}
+
+.header #top-menu ul li {
+    display: inline-block;
+    font-size: 13px;
+}
+
+.header #top-menu ul li:after {
+    content: "|";
+    margin: 0 10px;
+}
+.header #top-menu ul li:last-of-type:after {
+    content: "";
 }
 
 .header #main-navigation.navigation {

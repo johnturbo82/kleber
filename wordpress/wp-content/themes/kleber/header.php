@@ -14,8 +14,9 @@
         <div class="header">
             <div class="content">
                 <a href="<?php echo esc_url(home_url("/")); ?>" class="logo"></a>
-                <?php wp_nav_menu(array("menu" => "Hauptmenü", "container_id" => "main-navigation", "container_class" => "navigation")) ?>
-                <?php wp_nav_menu(array("menu" => "Hauptmenü", "container_id" => "overlay-navigation", "container_class" => "navigation")) ?>
+                <?php wp_nav_menu(array("theme_location" => "top-menu", "container_id" => "top-menu", "container_class" => "top-menu")) ?>
+                <?php wp_nav_menu(array("theme_location" => "main-menu", "container_id" => "main-navigation", "container_class" => "navigation")) ?>
+                <?php wp_nav_menu(array("theme_location" => "main-menu", "container_id" => "overlay-navigation", "container_class" => "navigation")) ?>
                 <div class="hamburger" onclick="toggleNav()">
                     <div></div>
                 </div>

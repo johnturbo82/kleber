@@ -104,6 +104,10 @@ if ( defined( 'WP_CLI' ) ) {
 }
 
 define( 'WP_AUTO_UPDATE_CORE', false );
+
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+    $_SERVER['HTTPS'] = 'on';
+}
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */

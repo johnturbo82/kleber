@@ -23,7 +23,7 @@ get_header(); ?>
             while ($jobs_query->have_posts()) : $jobs_query->the_post(); ?>
                 <div class="job">
                     <p><?php echo get_post_meta(get_the_ID(), 'job_start_date', true) ?: 'Ab sofort'; ?></p>
-                    <p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
+                    <p><a href="<?php the_permalink(); ?>"><strong><?php the_title(); ?></strong></a></p>
                     <p><?php echo get_post_meta(get_the_ID(), 'job_hours', true) ?: '40h / Woche'; ?></p>
                 </div>
             <?php endwhile;

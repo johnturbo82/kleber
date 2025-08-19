@@ -50,3 +50,18 @@ function register_jobs_post_type() {
     register_post_type('jobs', $args);
 }
 add_action('init', 'register_jobs_post_type');
+
+/**
+ * Add current-menu-parent class to Karriere menu item when on job pages
+ */
+function add_current_menu_parent_for_jobs($classes, $item, $args) {
+    // Prüfe, ob wir uns auf einer Job-Seite befinden
+    if (is_singular('jobs') || strpos($_SERVER['REQUEST_URI'], '/jobs/') !== false) {
+        // Prüfe, ob der aktuelle Menüpunkt "Karriere" ist (anpassen je nach deinem Menü)
+        if (strtolower($item->title) == 'karriere' || strtolower($item->title) == 'jobs') {
+            $classes[] = 'current-menu-parent';
+        }
+    }
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'add_current_menu_parent_for_jobs', 10, 3);

@@ -12,9 +12,6 @@ window.addEventListener('load', function () {
     }
     updateDarkMode();
     darkScheme.addEventListener('change', updateDarkMode);
-
-    navBar = document.getElementById("header-scrolling");
-    visible = false;
 });
 
 

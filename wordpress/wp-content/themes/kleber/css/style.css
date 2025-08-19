@@ -260,7 +260,9 @@ body.dark .header a.logo {
     text-decoration: none;
 }
 
-.header #main-navigation.navigation li.current-menu-item a {
+.header #main-navigation.navigation li.current-menu-item a,
+.header #main-navigation.navigation li.current-page-ancestor a,
+.header #main-navigation.navigation li.current-menu-parent a {
     border-bottom: 3px solid var(--color-highlight);
     text-decoration: none;
     color: var(--color-text);
@@ -622,7 +624,9 @@ body.dark .footer .content .logo_rad {
         text-decoration: none;
     }
 
-    #overlay-navigation ul li.current-menu-item a {
+    #overlay-navigation ul li.current-menu-item a,
+    #overlay-navigation ul li.current-page-ancestor a,
+    #overlay-navigation ul li.current-menu-parent a {
         border-bottom: 4px solid var(--color-highlight);
     }
 

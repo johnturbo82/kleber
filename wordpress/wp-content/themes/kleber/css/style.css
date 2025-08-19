@@ -609,13 +609,14 @@ body.dark .footer .content .logo_rad {
 
     #overlay-navigation ul {
         padding: 0;
+        margin-top: 30px;
     }
     
     #overlay-navigation ul li {
         list-style: none;
         display: block;
         margin: 5px;
-        padding: var(--padding);
+        padding: 15px;
         width: 100%;
         text-align: center;
     }
@@ -624,7 +625,7 @@ body.dark .footer .content .logo_rad {
         font-family: "Bebas Neue", cursive;
         font-weight: 400;
         font-style: normal;
-        font-size: 20px;
+        font-size: 5vh;
         color: var(--color-fix-white);
         text-decoration: none;
     }

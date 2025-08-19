@@ -607,6 +607,10 @@ body.dark .footer .content .logo_rad {
         pointer-events: auto;
     }
 
+    #overlay-navigation ul {
+        padding: 0;
+    }
+    
     #overlay-navigation ul li {
         list-style: none;
         display: block;

@@ -101,9 +101,9 @@ define( 'FS_METHOD', 'direct' );
  *  define('WP_SITEURL','http://example.com');
  *
  */
-if ( defined( 'WP_CLI' ) ) {
-        $_SERVER['HTTP_HOST'] = '127.0.0.1';
-}
+#if ( defined( 'WP_CLI' ) ) {
+#        $_SERVER['HTTP_HOST'] = '127.0.0.1';
+#}
 
 define( 'WP_AUTO_UPDATE_CORE', false );
 

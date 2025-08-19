@@ -302,7 +302,7 @@ body.dark .header a.logo {
     display: none;
     position: fixed;
     top: 60px;
-    right: 0;
+    right: -17px;
     cursor: pointer;
     transform: translate(-50%, -50%);
     width: 60px;

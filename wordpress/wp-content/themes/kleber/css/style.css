@@ -321,18 +321,6 @@ body.dark .header a.logo {
     transition: 0.5s;
 }
 
-.hamburger:hover:before {
-    transform: translateY(12px) rotate(135deg);
-}
-
-.hamburger:hover:after {
-    transform: translateY(-12px) rotate(-135deg);
-}
-
-.hamburger:hover div {
-    transform: scale(0);
-}
-
 .stage {
     background-color: var(--color-background);
     min-height: 400px;
@@ -631,7 +619,7 @@ body.dark .footer .content .logo_rad {
     }
 
     #overlay-navigation ul li.current-menu-item a {
-        border-bottom: 2px solid var(--color-highlight);
+        border-bottom: 4px solid var(--color-highlight);
     }
 
     .header-scrolling {

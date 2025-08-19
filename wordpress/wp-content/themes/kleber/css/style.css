@@ -300,13 +300,16 @@ body.dark .header a.logo {
 
 .hamburger {
     display: none;
-    top: 34px;
+    position: fixed;
+    top: 91px;
     right: 0;
     cursor: pointer;
     transform: translate(-50%, -50%);
-    position: absolute;
-    width: 50px;
+    width: 60px;
     z-index: 1001;
+    background-color: var(--color-background);
+    padding: 3px 7px;
+    border-radius: var(--border-radius);
 }
 
 .hamburger:before,

@@ -655,15 +655,35 @@ body.dark .footer .content .logo_rad {
         width: 100%;
     }
 
+    .emergency-bar {
+        height: 50px;
+    }
+
     .emergency-bar .emergency-content {
         padding: 5px 10px;
+    }
+
+    .emergency-bar .mobile, .emergency-bar .telephone {
+        display: none;
+    }
+
+    .emergency-bar .telephone-icon, .emergency-bar .mobile-icon {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        height: 30px !important;
+        width: 30px !important;
+    }
+
+    .emergency-bar .telephone-icon {
+        right: 50px
     }
 
 }
 
 @media screen and (max-width: 380px) {
     .emergency-bar {
-        height: 50px;
+        height: 35px;
     }
 
     .emergency-bar * {

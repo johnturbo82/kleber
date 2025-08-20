@@ -37,7 +37,6 @@ function createDots() {
         dot.className = 'dot';
         if (index === 0) dot.classList.add('active');
         dot.addEventListener('click', () => {
-            console.log('Dot clicked, going to image:', index);
             goToImage(index, true); // true = manueller Wechsel
         });
         dotsContainer.appendChild(dot);
@@ -50,7 +49,6 @@ function goToImage(index, manual = false) {
     updateDots();
     
     if (manual) {
-        console.log('Manual navigation - restarting timer');
         restartTimer();
     }
 }
@@ -72,7 +70,6 @@ function nextImage(manual = false) {
     updateDots();
     
     if (manual) {
-        console.log('Manual next - restarting timer');
         restartTimer();
     }
 }
@@ -83,7 +80,6 @@ function prevImage(manual = false) {
     updateDots();
     
     if (manual) {
-        console.log('Manual prev - restarting timer');
         restartTimer();
     }
 }
@@ -94,23 +90,19 @@ function startTimer() {
     }
     intervalId = setInterval(() => {
         if (isTimerActive) {
-            console.log('Auto slide to next image');
             nextImage(false); // false = automatischer Wechsel
         }
     }, 5000);
-    console.log('Timer started with ID:', intervalId);
 }
 
 function stopTimer() {
     if (intervalId) {
         clearInterval(intervalId);
         intervalId = null;
-        console.log('Timer stopped');
     }
 }
 
 function restartTimer() {
-    console.log('Restarting timer...');
     stopTimer();
     startTimer();
 }
@@ -132,10 +124,8 @@ function handleSwipe() {
     
     if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
         if (deltaX > 0) {
-            console.log('Swipe right - prev image');
             prevImage(true); // true = manueller Wechsel
         } else {
-            console.log('Swipe left - next image');
             nextImage(true); // true = manueller Wechsel
         }
     }
@@ -143,10 +133,8 @@ function handleSwipe() {
 
 function handleKeydown(e) {
     if (e.key === 'ArrowLeft') {
-        console.log('Key left - prev image');
         prevImage(true);
     } else if (e.key === 'ArrowRight') {
-        console.log('Key right - next image');
         nextImage(true);
     }
 }
@@ -158,11 +146,9 @@ function addEventListeners() {
     document.addEventListener('keydown', handleKeydown);
     
     container.addEventListener('mouseenter', () => {
-        console.log('Mouse enter - pause timer');
         isTimerActive = false;
     });
     container.addEventListener('mouseleave', () => {
-        console.log('Mouse leave - resume timer');
         isTimerActive = true;
     });
 }
@@ -178,7 +164,6 @@ function init() {
     updateImage();
     addEventListeners();
 
-    // Timer erst nach dem Laden der Bilder starten
     setTimeout(() => {
         startTimer();
     }, 1000);

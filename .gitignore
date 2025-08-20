@@ -2,3 +2,4 @@
 .vscode/
 mariadb/
 .env
+wordpress/wp-content/cache/

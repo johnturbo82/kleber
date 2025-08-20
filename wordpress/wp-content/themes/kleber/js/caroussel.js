@@ -10,7 +10,6 @@ let currentImageIndex = 0;
 let intervalId;
 let preloadedImages = [];
 
-// Touch-Variablen
 let startX = 0;
 let startY = 0;
 let endX = 0;
@@ -94,11 +93,10 @@ function handleSwipe() {
     if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
         if (deltaX > 0) {
             prevImage();
-            resetInterval();
         } else {
             nextImage();
-            resetInterval();
         }
+        resetInterval();
     }
 }
 
@@ -113,14 +111,11 @@ function handleKeydown(e) {
 }
 
 function addEventListeners() {
-    // Touch-Events
     container.addEventListener('touchstart', handleTouchStart, { passive: true });
     container.addEventListener('touchend', handleTouchEnd, { passive: true });
     
-    // Keyboard-Events (optional)
     document.addEventListener('keydown', handleKeydown);
     
-    // Pausiere Auto-Slide bei Hover (Desktop)
     container.addEventListener('mouseenter', () => clearInterval(intervalId));
     container.addEventListener('mouseleave', () => {
         intervalId = setInterval(nextImage, 5000);

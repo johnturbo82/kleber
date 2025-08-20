@@ -35,16 +35,14 @@ function createDots() {
         const dot = document.createElement('div');
         dot.className = 'dot';
         if (index === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goToImage(index));
+        dot.addEventListener('click', () => {
+            currentImageIndex = index;
+            updateImage();
+            updateDots();
+            resetInterval(); // Timer hier neu starten
+        });
         dotsContainer.appendChild(dot);
     });
-}
-
-function goToImage(index) {
-    currentImageIndex = index;
-    updateImage();
-    updateDots();
-    resetInterval();
 }
 
 function updateImage() {

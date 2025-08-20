@@ -4,7 +4,9 @@ Template Name: Startseite
 */
 get_header(); ?>
 
-<div class="stage content team"></div>
+<div class="stage content team" id="imageContainer">
+    <div class="navigation-dots" id="navigationDots"></div>
+</div>
 <div class="stage content first-page">
     <div class="entry-content">
         <?php while (have_posts()) : the_post(); ?>

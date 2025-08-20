@@ -230,6 +230,7 @@ body.dark .header a.logo {
     content: "|";
     margin: 0 10px;
 }
+
 .header #top-menu ul li:last-of-type:after {
     content: "";
 }
@@ -404,10 +405,36 @@ body.dark .stage.job-page .jobs .job {
 }
 
 .stage.team {
-    background-image: url("../assets/images/team.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    transition: background-image 0.5s ease-in-out;
+}
+
+.navigation-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.dot:hover {
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .stage.services {
@@ -605,7 +632,7 @@ body.dark .footer .content .logo_rad {
         padding: 0;
         margin-top: 30px;
     }
-    
+
     #overlay-navigation ul li {
         list-style: none;
         display: block;
@@ -655,6 +682,10 @@ body.dark .footer .content .logo_rad {
         width: 100%;
     }
 
+    .map {
+        margin-bottom: 50px;
+    }
+
     .emergency-bar {
         height: 50px;
     }
@@ -663,11 +694,13 @@ body.dark .footer .content .logo_rad {
         padding: 5px 10px;
     }
 
-    .emergency-bar .mobile, .emergency-bar .telephone {
+    .emergency-bar .mobile,
+    .emergency-bar .telephone {
         display: none;
     }
 
-    .emergency-bar .telephone-icon, .emergency-bar .mobile-icon {
+    .emergency-bar .telephone-icon,
+    .emergency-bar .mobile-icon {
         position: absolute;
         right: 10px;
         top: 10px;
@@ -684,6 +717,10 @@ body.dark .footer .content .logo_rad {
 @media screen and (max-width: 380px) {
     .emergency-bar {
         height: 35px;
+    }
+
+    .map {
+        margin-bottom: 35px;
     }
 
     .emergency-bar * {

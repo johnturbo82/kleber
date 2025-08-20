@@ -10,6 +10,13 @@ let currentImageIndex = 0;
 let intervalId;
 let preloadedImages = [];
 
+// Touch-Variablen
+let startX = 0;
+let startY = 0;
+let endX = 0;
+let endY = 0;
+let minSwipeDistance = 50;
+
 const container = document.getElementById('imageContainer');
 const dotsContainer = document.getElementById('navigationDots');
 
@@ -58,15 +65,78 @@ function nextImage() {
     updateDots();
 }
 
+function prevImage() {
+    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+    updateImage();
+    updateDots();
+}
+
 function resetInterval() {
     clearInterval(intervalId);
     intervalId = setInterval(nextImage, 5000);
 }
 
+function handleTouchStart(e) {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+}
+
+function handleTouchEnd(e) {
+    endX = e.changedTouches[0].clientX;
+    endY = e.changedTouches[0].clientY;
+    handleSwipe();
+}
+
+function handleSwipe() {
+    const deltaX = endX - startX;
+    const deltaY = endY - startY;
+    
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
+        if (deltaX > 0) {
+            prevImage();
+            resetInterval();
+        } else {
+            nextImage();
+            resetInterval();
+        }
+    }
+}
+
+function handleKeydown(e) {
+    if (e.key === 'ArrowLeft') {
+        prevImage();
+        resetInterval();
+    } else if (e.key === 'ArrowRight') {
+        nextImage();
+        resetInterval();
+    }
+}
+
+function addEventListeners() {
+    // Touch-Events
+    container.addEventListener('touchstart', handleTouchStart, { passive: true });
+    container.addEventListener('touchend', handleTouchEnd, { passive: true });
+    
+    // Keyboard-Events (optional)
+    document.addEventListener('keydown', handleKeydown);
+    
+    // Pausiere Auto-Slide bei Hover (Desktop)
+    container.addEventListener('mouseenter', () => clearInterval(intervalId));
+    container.addEventListener('mouseleave', () => {
+        intervalId = setInterval(nextImage, 5000);
+    });
+}
+
 function init() {
+    if (!container || !dotsContainer) {
+        console.error('Container oder Dots-Container nicht gefunden');
+        return;
+    }
+    
     preloadImages();
     createDots();
     updateImage();
+    addEventListeners();
 
     setTimeout(() => {
         intervalId = setInterval(nextImage, 5000);

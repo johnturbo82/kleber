@@ -7,8 +7,9 @@ const images = [
 ];
 
 let currentImageIndex = 0;
-let intervalId;
+let intervalId = null;
 let preloadedImages = [];
+let isTimerActive = true;
 
 let startX = 0;
 let startY = 0;
@@ -36,13 +37,22 @@ function createDots() {
         dot.className = 'dot';
         if (index === 0) dot.classList.add('active');
         dot.addEventListener('click', () => {
-            currentImageIndex = index;
-            updateImage();
-            updateDots();
-            resetInterval(); // Timer hier neu starten
+            console.log('Dot clicked, going to image:', index);
+            goToImage(index, true); // true = manueller Wechsel
         });
         dotsContainer.appendChild(dot);
     });
+}
+
+function goToImage(index, manual = false) {
+    currentImageIndex = index;
+    updateImage();
+    updateDots();
+    
+    if (manual) {
+        console.log('Manual navigation - restarting timer');
+        restartTimer();
+    }
 }
 
 function updateImage() {
@@ -56,21 +66,53 @@ function updateDots() {
     });
 }
 
-function nextImage() {
+function nextImage(manual = false) {
     currentImageIndex = (currentImageIndex + 1) % images.length;
     updateImage();
     updateDots();
+    
+    if (manual) {
+        console.log('Manual next - restarting timer');
+        restartTimer();
+    }
 }
 
-function prevImage() {
+function prevImage(manual = false) {
     currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
     updateImage();
     updateDots();
+    
+    if (manual) {
+        console.log('Manual prev - restarting timer');
+        restartTimer();
+    }
 }
 
-function resetInterval() {
-    clearInterval(intervalId);
-    intervalId = setInterval(nextImage, 5000);
+function startTimer() {
+    if (intervalId) {
+        clearInterval(intervalId);
+    }
+    intervalId = setInterval(() => {
+        if (isTimerActive) {
+            console.log('Auto slide to next image');
+            nextImage(false); // false = automatischer Wechsel
+        }
+    }, 5000);
+    console.log('Timer started with ID:', intervalId);
+}
+
+function stopTimer() {
+    if (intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+        console.log('Timer stopped');
+    }
+}
+
+function restartTimer() {
+    console.log('Restarting timer...');
+    stopTimer();
+    startTimer();
 }
 
 function handleTouchStart(e) {
@@ -90,21 +132,22 @@ function handleSwipe() {
     
     if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
         if (deltaX > 0) {
-            prevImage();
+            console.log('Swipe right - prev image');
+            prevImage(true); // true = manueller Wechsel
         } else {
-            nextImage();
+            console.log('Swipe left - next image');
+            nextImage(true); // true = manueller Wechsel
         }
-        resetInterval();
     }
 }
 
 function handleKeydown(e) {
     if (e.key === 'ArrowLeft') {
-        prevImage();
-        resetInterval();
+        console.log('Key left - prev image');
+        prevImage(true);
     } else if (e.key === 'ArrowRight') {
-        nextImage();
-        resetInterval();
+        console.log('Key right - next image');
+        nextImage(true);
     }
 }
 
@@ -114,9 +157,13 @@ function addEventListeners() {
     
     document.addEventListener('keydown', handleKeydown);
     
-    container.addEventListener('mouseenter', () => clearInterval(intervalId));
+    container.addEventListener('mouseenter', () => {
+        console.log('Mouse enter - pause timer');
+        isTimerActive = false;
+    });
     container.addEventListener('mouseleave', () => {
-        intervalId = setInterval(nextImage, 5000);
+        console.log('Mouse leave - resume timer');
+        isTimerActive = true;
     });
 }
 
@@ -131,8 +178,9 @@ function init() {
     updateImage();
     addEventListeners();
 
+    // Timer erst nach dem Laden der Bilder starten
     setTimeout(() => {
-        intervalId = setInterval(nextImage, 5000);
+        startTimer();
     }, 1000);
 }
 

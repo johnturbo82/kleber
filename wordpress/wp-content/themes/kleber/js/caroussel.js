@@ -23,9 +23,6 @@ const dotsContainer = document.getElementById('navigationDots');
 function preloadImages() {
     images.forEach((imageSrc, index) => {
         const img = new Image();
-        img.onload = () => {
-            console.log(`Bild ${index + 1} geladen:`, imageSrc);
-        };
         img.src = imageSrc;
         preloadedImages.push(img);
     });
@@ -90,7 +87,7 @@ function startTimer() {
     }
     intervalId = setInterval(() => {
         if (isTimerActive) {
-            nextImage(false); // false = automatischer Wechsel
+            nextImage(false);
         }
     }, 5000);
 }

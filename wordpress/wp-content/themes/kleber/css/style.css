@@ -217,6 +217,11 @@ body.dark .container {
     width: 258px;
     background-repeat: no-repeat;
     background-size: contain;
+    transition: var(--transition);
+}
+
+.header a.logo:hover {
+    transform: scale(1.05);
 }
 
 body.dark .header a.logo {
@@ -587,6 +592,12 @@ p {
     background-position: center;
     background-size: contain;
     margin: 0 auto;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.footer .content .logo_rad:hover {
+    transform: scale(1.05);
 }
 
 body.dark .footer .content .logo_rad {

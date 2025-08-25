@@ -3,3 +3,4 @@
 mariadb/
 .env
 wordpress/wp-content/cache/
+wordpress/wp-content/uploads/

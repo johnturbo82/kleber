@@ -2,11 +2,33 @@
 /* 
 Template Name: Startseite
 */
-get_header(); ?>
+get_header();
 
-<div class="stage content team" id="imageContainer">
-    <div class="navigation-dots" id="navigationDots"></div>
-</div>
+function getImages() {
+    $images = array();
+    for ($i = 1; $i <= 5; $i++) {
+        $image = get_field('first_page_image_' . $i, 2);
+        if ($image) {
+            $images[] = $image;
+        }
+    }
+    return $images;
+}
+
+function getImageContainer() {
+    ?>
+    <div class="stage content team" id="imageContainer">
+        <?php foreach (getImages() as $image) : ?>
+            <img src="<?php echo $image; ?>" alt="Startseitenbild" style="display: none;">
+        <?php endforeach; ?>
+        <div class="navigation-dots" id="navigationDots"></div>
+    </div>
+    <?php
+}
+?>
+
+<?php getImageContainer(); ?>
+
 <div class="stage content first-page">
     <div class="entry-content">
         <?php while (have_posts()) : the_post(); ?>

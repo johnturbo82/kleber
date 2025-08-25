@@ -1,14 +1,6 @@
-const images = [
-    "/wp-content/themes/kleber/assets/images/header/gewoelbe.webp",
-    "/wp-content/themes/kleber/assets/images/header/arbeit.webp",
-    "/wp-content/themes/kleber/assets/images/header/kran.webp",
-    "/wp-content/themes/kleber/assets/images/header/hof.webp",
-    "/wp-content/themes/kleber/assets/images/header/feier.webp"
-];
-
+let images = [];
 let currentImageIndex = 0;
 let intervalId = null;
-let preloadedImages = [];
 let isTimerActive = true;
 
 let startX = 0;
@@ -20,12 +12,9 @@ let minSwipeDistance = 50;
 const container = document.getElementById('imageContainer');
 const dotsContainer = document.getElementById('navigationDots');
 
-function preloadImages() {
-    images.forEach((imageSrc, index) => {
-        const img = new Image();
-        img.src = imageSrc;
-        preloadedImages.push(img);
-    });
+function loadImagesFromDOM() {
+    const imageElements = container.querySelectorAll('img');
+    images = Array.from(imageElements).map(img => img.src);
 }
 
 function createDots() {
@@ -156,7 +145,7 @@ function init() {
         return;
     }
     
-    preloadImages();
+    loadImagesFromDOM();
     createDots();
     updateImage();
     addEventListeners();

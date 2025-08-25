@@ -2,14 +2,20 @@
     <div class="footer">
         <div class="content">
             <div class="logo_rad"></div>
-            <h2>Impressum</h2>
-            <p>Rudolf Kleber</p>
-            <p>Installateur- und Heizungsbaumeister</p>
-            <p>Alemannenstraße 21a<br />D-85095 Denkendorf</p>
-            <p>Steuer-Nr. 171 236 603 36</p>
-            <p>Tel: <a href="tel:+49084669519630">(08466) 951 963 0</a><br />Fax: <a href="tel:+49084669519631">(08466)
-                    951 963 1</a></p>
-            <p>Email: <a href="mailto:info@heizungstechnik-kleber.de">info@heizungstechnik-kleber.de</a></p>
+            <?php 
+            $query = new WP_Query(array(
+                'p' => 37,
+                'post_type' => 'page'
+            ));
+            if ($query->have_posts()) {
+                while ($query->have_posts()) {
+                    $query->the_post();
+                    the_title('<h2>', '</h2>');
+                    the_content();
+                }
+            }
+            wp_reset_postdata();
+            ?>
         </div>
     </div>
     <div class="map">

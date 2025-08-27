@@ -593,7 +593,6 @@ p {
     background-size: contain;
     margin: 0 auto;
     transition: var(--transition);
-    cursor: pointer;
 }
 
 .footer .content .logo_rad:hover {
